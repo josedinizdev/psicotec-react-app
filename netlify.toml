@@ -1,0 +1,4 @@
+[build]
+base = "."
+command = "nmp run build"
+publish = "./build/"
