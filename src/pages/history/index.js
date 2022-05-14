@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 export default function Index(){
     return(
         <div className='history-page'>
-            <div class="container wh-full">
-                <aside class="container-column">
+            <div className="container wh-full">
+                <aside className="container-column">
                     <h2>Área do administrador</h2>
                     <nav>
                         <ul>
@@ -23,15 +23,15 @@ export default function Index(){
                         </svg> 
                     </Link>
                 </aside>
-                <div class="container-column w-full">
-                    <main class="w-full container-column">
-                        <section class="main-table container-column w-full">
-                            <div class="title-next container space-between al-center">
+                <div className="container-column w-full">
+                    <main className="w-full container-column">
+                        <section className="main-table container-column w-full">
+                            <div className="title-next container space-between al-center">
                                 <h2>Próximos agendamentos</h2>
-                                <input class="main-button common-button" placeholder="Pesquisar por nome"></input>
+                                <input className="main-button common-button" placeholder="Pesquisar por nome"></input>
                             </div>
-                            <div class="next-schedules-card container-column w-full">
-                                <table class="w-full">
+                            <div className="next-schedules-card container-column w-full">
+                                <table className="w-full">
                                     <tbody>
                                         <tr>
                                             <td>José Diogo Caetano Diniz</td>
@@ -495,14 +495,14 @@ export default function Index(){
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="next-before container w-full jc-center">
-                                <div class="container space-between">
-                                    <button class="common-button main-button">Anter.</button>
-                                    <button class="common-button main-button">Próx.</button>
+                            <div className="next-before container w-full jc-center">
+                                <div className="container space-between">
+                                    <button className="common-button main-button">Anter.</button>
+                                    <button className="common-button main-button">Próx.</button>
                                 </div>
                             </div>
-                            <div class="container w-full jc-end">
-                                <button class="common-button main-button">+ Adicionar novo</button>
+                            <div className="container w-full jc-end">
+                                <button className="common-button main-button">+ Adicionar novo</button>
                             </div>
                         </section>
                     </main>

@@ -14,7 +14,7 @@ export default function Index(){
 
     return(
         <div className='admin-page'>
-            <div class="container wh-full">
+            <div className="container wh-full">
                 {popUp && (
                     <div className="popUp wh-full container-column">
                         <div className="wh-full container-column al-center jc-center">
@@ -75,7 +75,7 @@ export default function Index(){
                         </div>
                     </div>
                 )}
-                <aside class="container-column">
+                <aside className="container-column">
                     <h2>Área do administrador</h2>
                     <nav>
                         <ul>
@@ -92,15 +92,15 @@ export default function Index(){
                         </svg> 
                     </Link>
                 </aside>
-                <div class="container-column w-full">
-                    <header class="container w-full">
+                <div className="container-column w-full">
+                    <header className="container w-full">
                         <div>
                             <img src={profile} alt="" />
                         </div>    
                         <h1>Bem vindo(a) José Diogo</h1>
                     </header>
-                    <main class="w-full container-column">
-                        <section class="important container space-between w-full main-table">
+                    <main className="w-full container-column">
+                        <section className="important container space-between w-full main-table">
                             <div>
                                 <h2>Para hoje</h2>
                                 <ul>
@@ -117,13 +117,13 @@ export default function Index(){
                                 </ul>
                             </div>
                         </section>
-                        <section class="main-table container-column w-full">
-                            <div class="title-next container space-between al-center">
+                        <section className="main-table container-column w-full">
+                            <div className="title-next container space-between al-center">
                                 <h2>Próximos agendamentos</h2>
-                                <input class="main-button common-button" placeholder="Pesquisar por nome"></input>
+                                <input className="main-button common-button" placeholder="Pesquisar por nome"></input>
                             </div>
-                            <div class="next-schedules-card container-column w-full">
-                                <table class="w-full">
+                            <div className="next-schedules-card container-column w-full">
+                                <table className="w-full">
                                     <tbody>
                                         <tr>
                                             <td>José Diogo Caetano Diniz</td>
@@ -587,14 +587,14 @@ export default function Index(){
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="next-before container w-full jc-center">
-                                <div class="container space-between">
-                                    <button class="common-button main-button">Anter.</button>
-                                    <button class="common-button main-button">Próx.</button>
+                            <div className="next-before container w-full jc-center">
+                                <div className="container space-between">
+                                    <button className="common-button main-button">Anter.</button>
+                                    <button className="common-button main-button">Próx.</button>
                                 </div>
                             </div>
-                            <div class="container w-full jc-end">
-                                <button onClick={togglePopUp} class="common-button main-button" type="button">+ Adicionar novo</button>
+                            <div className="container w-full jc-end">
+                                <button onClick={togglePopUp} className="common-button main-button" type="button">+ Adicionar novo</button>
                             </div>
                         </section>
                     </main>
