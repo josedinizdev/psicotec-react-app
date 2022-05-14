@@ -1,0 +1,166 @@
+.history-page{
+    .common-button:hover, a:hover{
+        color: #979797;
+    }
+
+    h1, h2, h3, h4, h5, h6, label{
+        font-family: 'josefinsans-semibold' !important;
+    }
+    
+    h1{
+        font-size: 2.8rem !important;
+    }
+    
+    h2{
+        font-size: 1.8rem !important;
+    }
+    
+    h3, label{
+        font-size: 1.4rem !important;
+    }
+    
+    p{
+        font-family: 'josefinsans-regular';
+        font-size: 0.8rem;
+    }
+    
+    a, li{
+        font-family: 'josefinsans-regular';
+        font-size: 1.2rem;
+    }
+    
+    td{
+        font-family: 'josefinsans-regular';
+        font-size: 1rem;
+    }
+    
+    div.history-page{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* aside */ 
+    
+    aside{
+        background-color: #2B2B2B;
+        overflow: hidden;
+        height: 150vh;
+        width: 22rem;
+        padding: 1rem 0 0 1rem;
+        overflow: hidden;
+    }
+    
+    aside h2, aside a{
+        color: #fff;  
+    }
+
+    aside a:nth-child(4){
+        display: none;
+    }
+    
+    aside h2{
+        margin-bottom: 0.5rem;
+    }
+    
+    aside nav ul{
+        margin-bottom: 4rem;
+    }
+    
+    aside nav ul li:before{
+        content: '\2022';
+        margin: 0 6px;
+        color: #fff;
+    }
+    
+    /* main */
+    
+    main ul{
+        list-style: inside;
+    }
+    
+    main .important ul li:before{
+        content: '\2022';
+        margin: 0 6px;
+        color: #000;
+    }
+    
+    main table{
+        border-radius: 1rem;
+        padding: 0.6rem;
+        background-color: #E4E4E4;
+        margin-bottom: 1rem;
+    }
+    
+    .main-table{
+        padding: 1rem 2rem;
+    }
+    
+    tr{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    tr div{
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+    }
+    
+    .title-next button, .main-button{
+        padding: 0.8rem 1.2rem !important;
+        background-color: #2B2B2B;
+        color: #fff;
+    }
+    
+    .title-next{
+        margin-bottom: 1.2rem;
+    }
+    
+    tr td svg{
+        height: 1rem;
+        width: 1rem;
+    }
+    
+    .next-before div{
+        width: 13rem;
+    }
+    
+    @media (min-width: 1500px) {
+        td{
+            font-size: 1.4rem;
+        }
+    }
+    
+    @media (max-width: 700px){
+        td, input{
+            font-size: 0.8rem !important;
+        }
+        h2{
+            font-size: 1rem !important;
+        }
+        aside a{
+            font-size: 0.8rem !important;
+        }
+        aside{
+            width: 17.5rem;
+        }
+    
+        .container .w-full .jc-end{
+            margin-top: 1.2rem;
+            justify-content: center;
+        }
+    }
+    @media (max-width: 500px) {
+        aside h2, aside nav, aside a{
+            display: none;
+        }
+
+        aside a:nth-child(4){
+            display: inherit;
+        }
+    }
+}

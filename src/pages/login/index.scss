@@ -1,0 +1,88 @@
+.login-page{
+    h1, h2, h3, h4, h5, h6, label{
+        font-family: 'josefinsans-semibold' !important;
+    }
+    
+    h1{
+        font-size: 4.8rem !important;
+    }
+    
+    h2{
+        font-size: 2.4rem !important;
+    }
+    
+    h3, label{
+        font-size: 1.4rem !important;
+    }
+    
+    p{
+        font-family: 'josefinsans-regular';
+        font-size: 1.4rem;
+    }
+    
+    div.login-page{
+        overflow-x: hidden;
+    }
+    
+    main{
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    label{
+        color: #fff;
+    }
+    
+    a.common-button{
+        padding: 1.2rem 2.3rem !important;
+        background-color: #ffaa05;
+        color: #fff;
+    }
+    
+    input{
+        margin-bottom: 2rem;
+    }
+    
+    .logo-svg img{
+        width: 7.4rem;
+    
+        /* original size*/
+        /* width 90rem | height 47.3rem*/
+    
+        margin-bottom: 2rem;
+    }
+    
+    .login-card{
+        border-radius: 1rem;
+        width: fit-content;
+        height: 30rem;
+        padding: 3rem 3.2rem;
+        background-color: #4e569c;
+    }
+    
+    .login-background{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+    .login-background-color{
+        background-color: #65609c;
+        opacity: .7;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+    .login-background-image{
+        background-image: url(../../images/login-background-image.jpeg);
+        background-size: auto 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
