@@ -4,11 +4,11 @@
 Empreendedores focados no desenvolvimento de software para micro negócios, com objetivo de revolucionar o mercado tecnológico e mudar o rumo de microempreendedores.
 
 ## INTEGRANTES  
-Nº 08 - David Douglas Gonçalves Ribeiro  
-Nº 12 - Gabriel de Araújo Silva  
-Nº 27 - João Vitor Moura da Silva  
-Nº 28 - José Diogo Caetano Diniz  
-Nº 33 - Kevin Pires de Oliveira  
+Nº 08 - David D.  
+Nº 12 - Gabriel de A.  
+Nº 27 - João V.  
+Nº 28 - José D.  
+Nº 33 - Kevin P.  
 
 ## CARGOS  
 Diretor Executivo (CEO) => Jose D.  
