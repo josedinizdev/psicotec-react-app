@@ -1,4 +1,4 @@
-# NOME DA EMPRESA - PSICOTEC  
+# PSICOTEC  
 ## TEMA - Sistema para Psicólogo
 
 Empreendedores focados no desenvolvimento de software para micro negócios, com objetivo de revolucionar o mercado tecnológico e mudar o rumo de microempreendedores.
