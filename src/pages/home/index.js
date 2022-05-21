@@ -1,6 +1,7 @@
 import './index.scss'
 import '../../common/common.scss'
 import { Link } from 'react-router-dom'
+import Helmet from 'react-helmet'
 
 import logo from '../../images/logo.png';
 import st_sideimage from '../../images/main-1st-sideimage.jpg';
@@ -9,6 +10,13 @@ import fourth_sideimage from '../../images/main-4th-sideimage.webp';
 export default function Index(){
     return(
         <div className='home-page'>
+            <Helmet>
+                <meta charset="UTF-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="icon" href={logo} type="image/x-icon" />
+                <title>Página Inicial | PsicoTEC</title>
+            </Helmet>
             <header>
                 <section className="container w-full max-width-visibility space-between">
                     <div className="header-title container zi-2">

@@ -1,10 +1,20 @@
 import './index.scss'
 import '../../common/common.scss'
 import { Link } from 'react-router-dom'
+import Helmet from 'react-helmet'
+
+import logo from '../../images/logo.png';   
 
 export default function Index(){
     return(
         <div className='history-page'>
+            <Helmet>
+                <meta charset="UTF-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="icon" href={logo} type="image/x-icon" />
+                <title>Histórico | PsicoTEC</title>
+            </Helmet>
             <div className="container wh-full">
                 <aside className="container-column">
                     <h2>Área do administrador</h2>

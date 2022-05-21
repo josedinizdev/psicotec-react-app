@@ -1,9 +1,12 @@
 import './index.scss'
 import '../../common/common.scss'
-import React, { useState } from "react";
+import React, { useState } from "react"
+import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 
-import profile from '../../images/profile-picture.jfif';
+import logo from '../../images/logo.png';
+
+import profile_pic from '../../images/profile-picture.jfif';
 
 export default function Index(){
     const [popUp, setPopUp] = useState(false);
@@ -14,6 +17,13 @@ export default function Index(){
 
     return(
         <div className='admin-page'>
+            <Helmet>
+                <meta charset="UTF-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="icon" href={logo} type="image/x-icon" />
+                <title>Administrador | PsicoTEC</title>
+            </Helmet>
             <div className="container wh-full">
                 {popUp && (
                     <div className="popUp wh-full container-column">
@@ -95,7 +105,7 @@ export default function Index(){
                 <div className="container-column w-full">
                     <header className="container w-full">
                         <div>
-                            <img src={profile} alt="" />
+                            <img src={profile_pic} alt="" />
                         </div>    
                         <h1>Bem vindo(a) José Diogo</h1>
                     </header>

@@ -1,12 +1,20 @@
 import './index.scss'
 import '../../common/common.scss'
 import { Link } from 'react-router-dom'
+import Helmet from 'react-helmet'
 
 import logo from '../../images/logo.png';
 
 export default function Index(){
     return(
         <div className='login-page'>
+            <Helmet>
+                <meta charset="UTF-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="icon" href={logo} type="image/x-icon" />
+                <title>Login | PsicoTEC</title>
+            </Helmet>
             <main>
                 <div className="login-card zi-2 container-column space-between">
                     <div className="logo-svg">
