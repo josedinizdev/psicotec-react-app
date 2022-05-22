@@ -30,7 +30,7 @@ export default function Index(){
                             <Link to='/'>
                                 <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <line y1="0%" x2="100%" y2="0%" stroke="#001AFF"/>
-                                    <line y1="50%" x2="100%" y2="50%" stroke="white"/>
+                                    <line y1="50%" x2="100%" y2="50%" stroke="#FFFFFF"/>
                                     <line y1="100%" x2="100%" y2="100%" stroke="#FFAA05"/>
                                 </svg>     
                             </Link>               
