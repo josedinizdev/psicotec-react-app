@@ -29,7 +29,7 @@ export default function Index(){
                         </div>
                         <div className="container-column w-full">
                             <label for="">Senha</label>
-                            <input className="common-button w-full" type="text" placeholder="ex.: 1234c%ys" />
+                            <input className="common-button w-full" type="password" placeholder="ex.: 1234c%ys" />
                         </div>
                     </form>
                     <div className="container-column al-center w-full">

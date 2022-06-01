@@ -20,11 +20,11 @@ export default function Index(){
                     <h2>Área do administrador</h2>
                     <nav>
                         <ul>
-                            <li><Link to='/admin'>Página Inicial</Link></li>
-                            <li><Link to='/history'>Histórico de agendamentos</Link></li>
+                            <li><Link to='/'>Página Inicial</Link></li>
+                            <li><Link to='/admin'>Próximos Agendamentos</Link></li>
                         </ul>
                     </nav>
-                    <Link to='/'>Voltar</Link>
+                    <Link to='/'>Desconectar</Link>
                     <Link to='/admin'>
                         <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="0%" x2="100%" y2="0%" stroke="#979797"/>

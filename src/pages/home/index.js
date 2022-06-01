@@ -9,8 +9,10 @@ import fourth_sideimage from '../../images/main-4th-sideimage.webp';
 
 export default function Index(){
     return(
-        <div className='home-page'>
+    
+        <div id='home' className='home-page'>
             <Helmet>
+                
                 <meta charset="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -65,7 +67,7 @@ export default function Index(){
                             na vida das pessoas
                         </p>
                         <div className="container w-full">
-                            <button className="common-button">Entre em contato</button>
+                            <a href='#avalie'><button className="common-button">Entre em contato</button></a>
                         </div>
                     </div>
                 </section>
@@ -137,9 +139,9 @@ export default function Index(){
                             segurança e qualidade em nossos serviços.
                         </p>
                     </div>
-                </section>
+                </section >
                 <section className="main-contacts-and-form container-column al-center w-full">
-                    <div className="max-width-visibility w-full zi-2 container space-between">
+                    <div  id="avalie" className="max-width-visibility w-full zi-2 container space-between">
                         <div>
                             <h2>Contatos</h2>
                             <p>(+55) 11 98806 7221</p>
@@ -147,7 +149,7 @@ export default function Index(){
                             <p>adminJose098_@psicotec.org.br</p>
                         </div>
                         <div>
-                            <h2>Avalie o site</h2>
+                            <h2 >Avalie o site</h2>
                             <form action="">
                                 <input className="common-button df-button-input" type="text" placeholder="Digite aqui seu nome" />
                                 <textarea className="common-button df-button-input" placeholder="Digite aqui sua opinião sobre o site"></textarea>
@@ -200,12 +202,12 @@ export default function Index(){
             <footer className="container-column al-center w-full">
                 <div className="container w-full h-full max-width-visibility space-between">
                     <div className="container h-full al-center">
-                        <h2><span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span> sempre em busca do seu melhor</h2>
+                        <h2><a href='#home'><span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span></a> sempre em busca do seu melhor</h2>
                     </div>
                     <div className="container-column space-between h-full">
                         <div className="logo-svg">
                             <Link className="logo-link" to='/'>
-                                <img src={logo} alt="" />
+                              <a href="#home"> <img src={logo} alt="" /> </a> 
                             </Link>
                         </div>
                         <div>

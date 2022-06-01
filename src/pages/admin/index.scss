@@ -11,24 +11,25 @@
 
     .popUp-box{
         position: fixed;
-        background-color: #373737;
+        background-color: #9F99DC;
         border-radius: 1.4rem;
         width: 40rem;
         padding: 1rem 1.6rem;
+       
     }
 
     .popUp-box .common-button:hover{
-        background-color: #979797;
+        background-color: #b7b1ff9b;
         color: #fff !important;
     }
 
     .common-button:hover, a:hover{
-        color: #979797;
+        color: #b7b1ff9b;
     }
 
     .popUp-box > div:nth-child(1) button{
         font-family: 'josefinsans-semibold' !important;
-        background-color: #373737;
+        background-color: #9F99DC;
         border: none;
         font-size: 2rem;
         color: #fff;
@@ -105,7 +106,7 @@
     /* aside */ 
     
     aside{
-        background-color: #2B2B2B;
+        background-color: #65609C;
         height: 180vh;
         width: 22rem;
         padding: 1rem 0 0 1rem;
@@ -136,7 +137,7 @@
     /* header */
     
     header{
-        background-color: #373737;  
+        background-color: #65609C;  
         justify-content: flex-start;
         padding: 0.4rem 1rem;
         align-items: center;
@@ -191,8 +192,10 @@
     
     .title-next button, .main-button{
         padding: 0.8rem 1.2rem !important;
-        background-color: #2B2B2B;
+        background-color: #9F99DC;
         color: #fff;
+       
+        
     }
     
     .title-next{
