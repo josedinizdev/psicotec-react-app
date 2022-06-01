@@ -8,7 +8,7 @@ INSERT INTO TB_ADMINISTRADOR (NM_USUARIO, DS_SENHA, DS_LOGIN, DS_EMAIL, IMG_PERF
 
 -- Efetuar login --
 
-select ID_usuario      id,
+select ID_USUARIO      id,
 DS_LOGIN                nome,
 DS_SENHA                senha
     from TB_ADMINISTRADOR
