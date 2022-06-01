@@ -12,3 +12,13 @@ export async function criarConsulta(agendamento){
 
   return agendamento;
 }
+
+export async function removerConsulta(id){
+  const comando= 
+  `
+  DELETE FROM tb_consulta
+    WHERE id_consulta = ?`;
+
+    const [resposta] = await con.query(comando, [id]);
+    return resposta.affectedRows;
+}
