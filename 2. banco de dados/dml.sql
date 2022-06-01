@@ -25,4 +25,15 @@ INSERT INTO TB_CONSULTA (ID_ADMINISTRADOR, NM_PACIENTE, NM_PAI, NM_MAE, DT_NASCI
 DELETE FROM tb_filme
     WHERE id_filme = 1;
 
--- Edita Agendamento -- Em andamento
+-- Editar Agendamento -- Em andamento
+UPDATE tb_consulta 
+  SET NM_PACIENTE             =?, 
+      NM_PAI                  =?, 
+      NM_MAE                  =?, 
+      DT_NASCIMENTO           =?, 
+      HR_HORA                 =?, 
+      DT_CONSULTAR            =?, 
+      DS_GENERO               =?, 
+      DS_DESCRICAO            =?,  
+      DS_CONCLUSAO            =?
+    WHERE id_consulta         =?;

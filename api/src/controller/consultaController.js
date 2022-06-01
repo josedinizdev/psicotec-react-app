@@ -1,4 +1,4 @@
-import { criarConsulta, removerConsulta } from '../repository/consultaRepository.js'
+import { alterarConsulta, criarConsulta, removerConsulta } from '../repository/consultaRepository.js'
 
 import { Router } from 'express'
 const server = Router();
@@ -17,7 +17,7 @@ server.post('/agendamento', async (req, resp) => {
         throw new Error ('Hora da consulta obrigatório!');
     if(!novaConsulta.genero)
         throw new Error ('Genero do paciente é obrigatório!');
-    if(!novaConsulta.consulta)
+    if(!novaConsulta.consultar)
         throw new Error ('Data da consulta obrigatório');
                       
 
@@ -50,7 +50,34 @@ server.delete('/consulta/:id', async (req, resp) =>{
     }
 })
 
+server.put ('/consulta/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const agendamento = req.body;
 
+        if(!agendamento.paciente)
+            throw new Error ('Nome do paciente obrigatório!');
+        if(!agendamento.nascimento)
+            throw new Error ('Data de nascimento do paciente obrigatório!');
+        if(!agendamento.hora)
+            throw new Error ('Hora da consulta obrigatório!');
+        if(!agendamento.genero)
+            throw new Error ('Genero do paciente é obrigatório!');
+        if(!agendamento.consultar)
+            throw new Error ('Data da consulta obrigatório');
+
+        const resposta = await alterarConsulta(id, agendamento);
+        if (resposta != 1)
+            throw new Error('filme não pode ser alterado')
+
+        else
+            resp.status(204).send();
+    } catch (err) {
+        resp.status(400).send({
+            erro:err.message
+        })
+    }
+})
 
 
 export default server;
