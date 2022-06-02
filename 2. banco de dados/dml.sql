@@ -25,7 +25,8 @@ INSERT INTO TB_CONSULTA (ID_ADMINISTRADOR, NM_PACIENTE, NM_PAI, NM_MAE, DT_NASCI
 DELETE FROM tb_filme
     WHERE id_filme = 1;
 
--- Editar Agendamento -- Em andamento
+-- Editar Agendamento -- Finalizado.
+
 UPDATE tb_consulta 
   SET NM_PACIENTE             =?, 
       NM_PAI                  =?, 
@@ -37,3 +38,34 @@ UPDATE tb_consulta
       DS_DESCRICAO            =?,  
       DS_CONCLUSAO            =?
     WHERE id_consulta         =?;
+
+-- Consultar todos -- Finalizado.
+
+SELECT id_consulta    id,             
+  NM_PACIENTE		paciente,
+  NM_PAI				pai,
+  NM_MAE				mae,
+  DT_NASCIMENTO		date,
+  HR_HORA				time,
+  DT_CONSULTAR		date,
+  DS_GENERO			genero,
+  DS_DESCRICAO	descricao,
+  DS_CONCLUSAO	conclusao,
+  DT_NASCIMENTO   	DATE
+  FROM tb_consulta
+
+  -- Consultar por nome presente -- Finalizado.
+
+  SELECT id_consulta    id,             
+  NM_PACIENTE		    paciente,
+  NM_PAI			    	pai,
+  NM_MAE			    	mae,
+  DT_NASCIMENTO		  date,
+  HR_HORA				    time,
+  DT_CONSULTAR	  	date,
+  DS_GENERO			    genero,
+  DS_DESCRICAO      descricao,
+  DS_CONCLUSAO	    conclusao,
+  DT_NASCIMENTO   	DATE
+  FROM tb_consulta
+  WHERE nm_paciente like

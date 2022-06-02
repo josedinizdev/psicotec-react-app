@@ -5,6 +5,7 @@ import { Router  } from "express";
 
 
 
+
 const server = Router ();
 
 
@@ -24,5 +25,7 @@ server.post('/usuario/login', async (req, resp) =>{
         });
     }
 })
+
+
 
 export default server;

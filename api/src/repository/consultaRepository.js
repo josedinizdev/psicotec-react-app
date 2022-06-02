@@ -44,3 +44,43 @@ export async function alterarConsulta(id, agendamento) {
   
   return resposta.affectedRows;
 }
+
+export async function consultarTodos(){
+  const comando = 
+  `SELECT id_consulta    id,             
+  NM_PACIENTE		paciente,
+  NM_PAI				pai,
+  NM_MAE				mae,
+  DT_NASCIMENTO		date,
+  HR_HORA				time,
+  DT_CONSULTAR		date,
+  DS_GENERO			genero,
+  DS_DESCRICAO	descricao,
+  DS_CONCLUSAO	conclusao,
+  DT_NASCIMENTO   	DATE
+  FROM tb_consulta`;
+
+  const [linhas]= await con.query(comando);
+  return linhas;
+}
+
+export async function consultarPorNome(nome){
+  const comando = 
+  `SELECT id_consulta    id,             
+  NM_PACIENTE		    paciente,
+  NM_PAI			    	pai,
+  NM_MAE			    	mae,
+  DT_NASCIMENTO		  date,
+  HR_HORA				    time,
+  DT_CONSULTAR	  	date,
+  DS_GENERO			    genero,
+  DS_DESCRICAO      descricao,
+  DS_CONCLUSAO	    conclusao,
+  DT_NASCIMENTO   	DATE
+  FROM tb_consulta
+  WHERE nm_paciente like ?`;
+
+  const [linhas]= await con.query(comando, [`%${nome}%`]);
+  return linhas[0];
+
+}

@@ -1,4 +1,4 @@
-import { alterarConsulta, criarConsulta, removerConsulta } from '../repository/consultaRepository.js'
+import { alterarConsulta, consultarPorNome, consultarTodos, criarConsulta, removerConsulta } from '../repository/consultaRepository.js'
 
 import { Router } from 'express'
 const server = Router();
@@ -68,7 +68,7 @@ server.put ('/consulta/:id', async (req, resp) => {
 
         const resposta = await alterarConsulta(id, agendamento);
         if (resposta != 1)
-            throw new Error('filme não pode ser alterado')
+            throw new Error('Consulta não pode ser alterado')
 
         else
             resp.status(204).send();
@@ -76,6 +76,35 @@ server.put ('/consulta/:id', async (req, resp) => {
         resp.status(400).send({
             erro:err.message
         })
+    }
+})
+
+server.get('/consulta', async (req, resp) => {
+    try{
+        const resposta = await consultarTodos();
+        resp.send(resposta);
+    }catch(err){
+        resp.status(400).send({
+            erro:err.message
+        });
+    } 
+})
+
+server.get('/consulta/busca', async (req, resp) => {
+    try {
+        const { nome } = req.query;
+        
+        const resposta = await consultarPorNome(nome);
+
+        if (!resposta)
+            resp.status(404).send([])
+        else
+            resp.send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+        
     }
 })
 
