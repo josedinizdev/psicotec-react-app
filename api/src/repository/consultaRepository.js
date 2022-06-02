@@ -47,17 +47,11 @@ export async function alterarConsulta(id, agendamento) {
 
 export async function consultarTodos(){
   const comando = 
-  `SELECT id_consulta    id,             
+  `SELECT            
   NM_PACIENTE		paciente,
-  NM_PAI				pai,
-  NM_MAE				mae,
-  DT_NASCIMENTO		date,
   HR_HORA				time,
-  DT_CONSULTAR		date,
-  DS_GENERO			genero,
-  DS_DESCRICAO	descricao,
-  DS_CONCLUSAO	conclusao,
-  DT_NASCIMENTO   	DATE
+  DT_CONSULTAR		date
+
   FROM tb_consulta`;
 
   const [linhas]= await con.query(comando);
@@ -66,19 +60,13 @@ export async function consultarTodos(){
 
 export async function consultarPorNome(nome){
   const comando = 
-  `SELECT id_consulta    id,             
+  `SELECT              
   NM_PACIENTE		    paciente,
-  NM_PAI			    	pai,
-  NM_MAE			    	mae,
-  DT_NASCIMENTO		  date,
   HR_HORA				    time,
-  DT_CONSULTAR	  	date,
-  DS_GENERO			    genero,
-  DS_DESCRICAO      descricao,
-  DS_CONCLUSAO	    conclusao,
-  DT_NASCIMENTO   	DATE
+  DT_CONSULTAR	  	date
+
   FROM tb_consulta
-  WHERE nm_paciente like ?`;
+  WHERE nm_paciente like  ?`;
 
   const [linhas]= await con.query(comando, [`%${nome}%`]);
   return linhas[0];

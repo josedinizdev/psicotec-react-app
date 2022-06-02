@@ -1,1 +1,68 @@
 Planejamento em breve:
+
+
+//LOGIN//
+
+post /usuario/login
+{
+    
+    "logar": "junior",
+    "senha": 1234
+    
+}
+
+//CRIAR consulta//
+
+post /agendamento
+{
+    "administrador": 1,
+    "paciente": "lucas",
+    "pai": "joazo",
+    "mae": "julziana",
+    "nascimento": "2000-02-02",
+    "hora": "12:30",
+    "consultar": "2022-06-03",
+    "genero": "Masculino",
+    "descricao": "Paciente com...",
+    "conclusao": "É uma pessoa muito..." 
+}
+
+delete /consulta/:id
+
+//Alterar consulta//
+
+put /consulta/:id
+{
+
+    "paciente": "jonas",
+    "pai": "vidal",
+    "mae": "juliana",
+    "nascimento": "2000-02-02",
+    "hora": "12:35",
+    "consultar": "2022-06-03",
+    "genero": "Masculino",
+    "descricao": "Paciente com...",
+    "conclusao": "É uma pessoa muito..."
+    
+}
+
+//Consultar todos//
+
+get /consulta
+reponse
+{
+    "paciente": "joao",
+    "time": "12:30:00",
+    "date": "2022-06-03"
+}
+
+//Consultar por nome//
+
+get /consulta/busca?
+
+{
+    "paciente": "joao", 
+    "time": "12:30:00",
+    "date": "2022-06-03"
+
+}

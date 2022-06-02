@@ -15,7 +15,7 @@ server.post('/agendamento', async (req, resp) => {
         throw new Error ('Data de nascimento do paciente obrigatório!');
     if(!novaConsulta.hora)
         throw new Error ('Hora da consulta obrigatório!');
-    if(!novaConsulta.genero)
+    if(!novaConsulta.genero)    
         throw new Error ('Genero do paciente é obrigatório!');
     if(!novaConsulta.consultar)
         throw new Error ('Data da consulta obrigatório');
