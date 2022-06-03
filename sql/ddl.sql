@@ -1,5 +1,5 @@
-create database INFOAprojetointegradordb;
-use infoaprojetoIntegradorDB;
+create database infoapsicotec;
+use infoapsicotec;
 
 CREATE TABLE TB_ADMINISTRADOR(
 ID_ADMINISTRADOR   INT PRIMARY KEY auto_increment,
@@ -25,3 +25,10 @@ DS_DESCRICAO		VARCHAR(3000),
 DS_CONCLUSAO		VARCHAR(3000),
 foreign key(ID_ADMINISTRADOR) references TB_ADMINISTRADOR (ID_ADMINISTRADOR)
 );
+
+CREATE TABLE tb_emails(
+    ID_EMAIL        INT PRIMARY KEY AUTO_INCREMENT,
+    NM_AUTOR        VARCHAR(200),
+    DS_OPINIAO      VARCHAR(3000),
+    DT_ENVIO        DATE
+)
