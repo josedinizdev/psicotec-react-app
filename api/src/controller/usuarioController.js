@@ -14,8 +14,8 @@ server.post('/usuario/login', async (req, resp) =>{
         resp.send(resposta)
     } catch(err) 
     {
-        resp.status(400).send({
-            erro: 'Ocorreu um erro'
+        resp.status(401).send({
+            erro: 'Credenciais inválidas'
         });
     }
 })

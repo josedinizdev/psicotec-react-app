@@ -37,6 +37,7 @@
     
     a.common-button{
         padding: 1.2rem 2.3rem !important;
+        margin: 0.5rem 0rem !important;
         background-color: #ffaa05;
         color: #fff;
     }
@@ -85,4 +86,18 @@
         left: 0;
         top: 0;
     }
+    .login-invalido{
+        font-size: 16px;
+        color: #de7373;
+        font-weight: bold;
+        font-family: 'josefinsans-semibold' !important;
+       
+    }
+
+    .btn-login{
+    padding: 1.2rem 2.3rem !important;
+    margin: 0.5rem 0rem !important;
+    background-color: #ffaa05;
+    color: #fff;
 }
+    }
