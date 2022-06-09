@@ -1,11 +1,36 @@
 import './index.scss'
 import '../../common/common.scss'
-import { Link } from 'react-router-dom'
+import { useState, useRef, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Helmet from 'react-helmet'
+import storage from 'local-storage'
+
 
 import logo from '../../images/logo.png';   
 
 export default function Index(){
+
+    const navigate = useNavigate();
+    const ref = useRef();
+
+    function sairClick(){
+
+        storage.remove('usuario-logado');
+        navigate('/');
+    
+    }
+    useEffect(()=> {
+        if  (!storage ('usuario-logado')){
+            navigate('/login');
+        }
+        else{
+            const usuarioLogado = storage('usuario-logado');
+        }
+    }, {});
+
+
+
+
     return(
         <div className='history-page'>
             <Helmet>
@@ -24,7 +49,7 @@ export default function Index(){
                             <li><Link to='/admin'>Próximos Agendamentos</Link></li>
                         </ul>
                     </nav>
-                    <Link to='/'>Desconectar</Link>
+                    <Link to='/login' onClick={sairClick}>Desconectar</Link>
                     <Link to='/admin'>
                         <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="0%" x2="100%" y2="0%" stroke="#979797"/>

@@ -1,19 +1,41 @@
 import './index.scss'
 import '../../common/common.scss'
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
+import storage from 'local-storage'
+import { useNavigate } from 'react-router-dom'
 
 import logo from '../../images/logo.png';
 import profile_pic from '../../images/profile-picture.jfif';
 
 export default function Index(){
     const [popUp, setPopUp] = useState(false);
+    const [usuario, setUsuario] = useState('-');
 
     const togglePopUp = () => {
         setPopUp(!popUp)
     }
 
+    const navigate = useNavigate();
+
+    function sairClick(){
+
+    storage.remove('usuario-logado');
+    navigate('/');
+
+}
+useEffect(()=> {
+    if  (!storage ('usuario-logado')){
+        navigate('/login');
+    }
+    else{
+        const usuarioLogado = storage('usuario-logado');
+        setUsuario(usuarioLogado.nome);
+    }
+}, {});
+    
+    
     return(
         <div className='admin-page'>
             <Helmet>
@@ -92,7 +114,7 @@ export default function Index(){
                             <li><Link to="/history">Histórico de agendamentos</Link></li>
                         </ul>
                     </nav>
-                    <Link to="/">Desconectar</Link>
+                    <Link to="/" onClick={sairClick}>Desconectar</Link>
                     <Link to="/history">
                         <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="0%" x2="100%" y2="0%" stroke="#979797"/>
@@ -106,7 +128,7 @@ export default function Index(){
                         <div>
                             <img src={profile_pic} alt="" />
                         </div>    
-                        <h1>Bem vindo(a) José Diogo</h1>
+                        <h1>Bem vindo(a) {usuario}</h1>
                     </header>
                     <main className="w-full container-column">
                         <section className="important container space-between w-full main-table">
