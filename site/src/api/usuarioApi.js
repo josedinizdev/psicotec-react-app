@@ -11,4 +11,5 @@ export async function login(logar, senha){
         });
 
         return r.data;
-}
+} 
+
