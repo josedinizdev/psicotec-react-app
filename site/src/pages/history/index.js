@@ -75,8 +75,11 @@ export default function Index(){
                     <main className="w-full container-column">
                         <section className="main-table container-column w-full">
                             <div className="title-next container space-between al-center">
-                                <h2>Histórico</h2>
+                                <h2>Histórico de Agendamentos</h2>
                                 <input className="main-button common-button" placeholder="Pesquisar por nome"></input>
+                                
+                                
+                                
                             </div>
                             <div className="next-schedules-card container-column w-full">
                                 <table className="w-full">
