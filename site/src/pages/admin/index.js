@@ -5,10 +5,28 @@ import Helmet from 'react-helmet'
 import { Link, useNavigate } from 'react-router-dom'
 import storage from 'local-storage'
 
-import { listarTodasConsultas, BuscarFilmesPorNome,consultarProximos } from '../../api/consultarApi'
+import { listarTodasConsultas, BuscarFilmesPorNome, consultarProximos, BuscarPresente } from '../../api/consultarApi'
 
 import logo from '../../images/logo.png';
 import profile_pic from '../../images/profile-picture.jfif';
+
+const abreviar = nome => {
+    let resp = ''
+    for(let i = 0; i < nome.length; i++){
+        resp = resp + nome[i]
+        if(nome[i] == ' '){
+            if(nome[i+1] == 'd' && nome[i+2] == 'a')
+                i = i + 3
+            else if(nome[i+1] == 'd' && nome[i+2] == 'e')
+                i = i + 3
+            else if(nome[i+1] == 'd' && nome[i+2] == 'o')
+                i = i + 3
+            resp = resp + nome[i+1] + '.'
+            break;
+        }
+    }
+    return resp
+}
 
 export default function Index(){
 
@@ -152,10 +170,9 @@ useEffect(()=> {
                             <div>
                                 <h2>Para hoje</h2>
                                 <ul>
-                                    <li>João P. - 08:40</li>
-                                    <li>Kevin L. - 09:20</li>
-                                    <li>David S. - 10:40</li>
-                                    <li>Marcelo S. - 11:20</li>
+                                    {consulta.map(item => 
+                                        <li>{abreviar(item.paciente)} - {item.time.substr(0, 5  )}</li>
+                                    )}
                                 </ul>
                             </div>
                             <div>

@@ -18,3 +18,8 @@ export async function consultarProximos() {
     const resposta = await api.get('/consulta/busca/futuro')
     return resposta.data;
 }
+
+export async function BuscarPresente(){
+    const resposta = await api.arguments('/consulta/busca/presente')
+    return resposta.data;
+}
