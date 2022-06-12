@@ -8,39 +8,44 @@ import lupa from '../../images/lupa.png'
 import { confirmAlert } from 'react-confirm-alert'
 import { toast, ToastContainer } from 'react-toastify'
 
-import { listarTodasConsultas, BuscarConsultasPorNome, consultarProximos, BuscarPresente } from '../../api/consultarApi'
-import { removerConsulta } from '../../api/alteracoesAPI'
-
+import { abreviar } from '../../services/services.js'
+import { consultarProximos, buscarPresente, buscarPorNomeProximos, buscarPendentes, cadastrar} from '../../api/consultarApi.js'
+import { removerConsulta } from '../../api/alteracoesAPI.js'
 import logo from '../../images/logo.png';
 import profile_pic from '../../images/profile-picture.jfif';
 
-const abreviar = nome => {
-    let resp = ''
-    for(let i = 0; i < nome.length; i++){
-        resp = resp + nome[i]
-        if(nome[i] == ' '){
-            if(nome[i+1] == 'd' && nome[i+2] == 'a')
-                i = i + 3
-            else if(nome[i+1] == 'd' && nome[i+2] == 'e')
-                i = i + 3
-            else if(nome[i+1] == 'd' && nome[i+2] == 'o')
-                i = i + 3
-            resp = resp + nome[i+1] + '.'
-            break;
-        }
-    }
-    return resp
-}
-
 export default function Index(){
+    const navigate = useNavigate();
 
+    const [admId, setAdmId] = useState(0)
+    const [paraHoje, setParaHoje] = useState([])
     const [popUp, setPopUp] = useState(false);
     const [usuario, setUsuario] = useState('-');
-    const [consulta, setConsulta] = useState ([]);
+    const [consulta, setConsulta] = useState([]);
     const [filtro, setFiltro] = useState('');
+    const [pendentes, setPedentes] = useState(0);
+
+    //criar value={c} onChange={e => setC(e.target.value)}
+    const [cPac, setCPac] = useState('')
+    const [cDt, setCDt] = useState('')
+    const [cMae, setCMae] = useState('')
+    const [cNasc, setCNasc] = useState('')
+    const [cPai, setCPai] = useState('')
+    const [cSexo, setCSexo] = useState('')
+    const [cHr, setCHr] = useState('')
+    const [cDetal, setCDetal] = useState('')
+    const [cConc, setCConc] = useState('')
+
+    async function criarConsulta(){
+        const resposta = await cadastrar(cPac, admId, cNasc, cHr, cSexo, cConc, cPai, cMae, cDetal, cConc)
+        setPopUp(!popUp)
+        if(!resposta)
+            toast('Cadastro não foi feito')
+        else
+            toast('Agendamento criado')
+    }
 
     async function consultaRemover(id, nome){
-    
         confirmAlert({
         title: 'Remover Consulta',
         message: `Deseja remover a consulta ${nome}`,
@@ -66,46 +71,121 @@ export default function Index(){
     })
     }
 
-
-  
-
     const togglePopUp = () => {
         setPopUp(!popUp)
     }
-
-    const navigate = useNavigate();
-
     
     async function filtrar(){
-        const resp = await BuscarConsultasPorNome(filtro)
+        const resp = await buscarPorNomeProximos(filtro)
         setConsulta(resp);
     }
 
+    function criarAgendamento(){
+        return(
+        <div className="popUp wh-full container-column">
+            <div className="wh-full container-column al-center jc-center">
+                <div className="popUp-box">
+                    <div className="w-full container jc-end">
+                        <button className="close-popUp" type="button" onClick={togglePopUp}>x</button>
+                    </div>
+                    <form className="container-column w-full">
+                        <div className="container w-full space-between">
+                            <div className="container-column">
+                                <label>Nome do paciente*</label>
+                                <input value={cPac} onChange={e => setCPac(e.target.value)}/>
+                            </div>
+                            <div className="container-column">
+                                <label>Data do agendamento*</label>
+                                <input type='date' value={cDt} onChange={e => setCDt(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="container w-full space-between">
+                            <div className="container-column">
+                                <label>Nome da mãe</label>
+                                <input value={cMae} onChange={e => setCMae(e.target.value)}/>
+                            </div>
+                            <div className="container-column">
+                                <label>Data de nascimento*</label>
+                                <input type='date' value={cNasc} onChange={e => setCNasc(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="container w-full space-between">
+                            <div className="container-column">
+                                <label>Nome do pai</label>
+                                <input value={cPai} onChange={e => setCPai(e.target.value)}/>
+                            </div>
+                            <div className="container-column">
+                                <label>Sexo*</label>
+                                <input value={cSexo} onChange={e => setCSexo(e.target.value)}/>
+                            </div>
+                            <div className="container-column">
+                                <label>Horário*</label>
+                                <input type='time' value={cHr} onChange={e => setCHr(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className="container w-full">
+                            <div className="container-column w-full">
+                                <label>Detalhes do paciente</label>
+                                <textarea value={cDetal} onChange={e => setCDetal(e.target.value)}></textarea>
+                            </div>
+                        </div>
+                        <div className="container w-full">
+                            <div className="container-column w-full">
+                                <label>Conclusão do atendimento</label>
+                                <textarea value={cConc} onChange={e => setCConc(e.target.value)}></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <button className="common-button" type="button" onClick={criarConsulta}>Concluir agendamento</button>
+                </div>
+            </div>
+        </div>
+        )
+    }
+
     function sairClick(){
-
-    storage.remove('usuario-logado');
-    navigate('/');
-
-}
-useEffect(()=> {
-    if  (!storage ('usuario-logado')){
-        navigate('/login');
+        storage.remove('usuario-logado');
+        navigate('/');
     }
-    else{
-        const usuarioLogado = storage('usuario-logado');
-        setUsuario(usuarioLogado.nome);
-    }
-}, {});
+
+    useEffect(()=> {
+        if  (!storage ('usuario-logado')){
+            navigate('/login');
+        }
+        else{
+            const usuarioLogado = storage('usuario-logado');
+            setUsuario(usuarioLogado.nome);
+            setAdmId(usuarioLogado.id);
+        }
+    }, {});
     
     async function carregarTodasConsultas(){
         const resp = await consultarProximos();
         setConsulta(resp); 
-
     }
 
     useEffect(() => {
         carregarTodasConsultas();
+    }, [])
 
+    async function carregarParaHoje(){
+        let resp = await buscarPresente();
+        if(resp == [])
+            resp = {nenhum: true}
+        setParaHoje(resp); 
+    }
+
+    useEffect(() => {
+        carregarParaHoje();
+    }, [])
+
+    async function carregarPendentes(){
+        let resp = await buscarPendentes();
+        setPedentes(resp.length())
+    }
+
+    useEffect(() => {
+        carregarPendentes()
     }, [])
     
     return(
@@ -119,66 +199,7 @@ useEffect(()=> {
                 <title>Administrador | PsicoTEC</title>
             </Helmet>
             <div className="container wh-full">
-                {popUp && (
-                    <div className="popUp wh-full container-column">
-                        <div className="wh-full container-column al-center jc-center">
-                            <div className="popUp-box">
-                                <div className="w-full container jc-end">
-                                    <button className="close-popUp" type="button" onClick={togglePopUp}>x</button>
-                                </div>
-                                <form className="container-column w-full">
-                                    <div className="container w-full space-between">
-                                        <div className="container-column">
-                                            <label>Nome do paciente*</label>
-                                            <input/>
-                                        </div>
-                                        <div className="container-column">
-                                            <label>Data do agendamento*</label>
-                                            <input/>
-                                        </div>
-                                    </div>
-                                    <div className="container w-full space-between">
-                                        <div className="container-column">
-                                            <label>Nome da mãe</label>
-                                            <input/>
-                                        </div>
-                                        <div className="container-column">
-                                            <label>Data de nascimento*</label>
-                                            <input/>
-                                        </div>
-                                    </div>
-                                    <div className="container w-full space-between">
-                                        <div className="container-column">
-                                            <label>Nome do pai</label>
-                                            <input/>
-                                        </div>
-                                        <div className="container-column">
-                                            <label>Sexo*</label>
-                                            <input/>
-                                        </div>
-                                        <div className="container-column">
-                                            <label>Horário*</label>
-                                            <input/>
-                                        </div>
-                                    </div>
-                                    <div className="container w-full">
-                                        <div className="container-column w-full">
-                                            <label>Detalhes do paciente</label>
-                                            <textarea></textarea>
-                                        </div>
-                                    </div>
-                                    <div className="container w-full">
-                                        <div className="container-column w-full">
-                                            <label>Conclusão do atendimento</label>
-                                            <textarea></textarea>
-                                        </div>
-                                    </div>
-                                </form>
-                                <button className="common-button" type="button" onClick={togglePopUp}>Concluir agendamento</button>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                {popUp && (criarAgendamento())}
                 <aside className="container-column">
                     <h2>Área do administrador</h2>
                     <nav>
@@ -209,56 +230,58 @@ useEffect(()=> {
                             <div>
                                 <h2>Para hoje</h2>
                                 <ul>
-                                    {consulta.map(item => 
-                                        <li>{abreviar(item.paciente)} - {item.time.substr(0, 5  )}</li>
-                                    )}
+                                    {paraHoje.map(item => {
+                                        if(item.nenhum === true)
+                                            return(
+                                                <li>Nenhum agendamento para hoje</li>
+                                            )
+                                        else
+                                            return(
+                                                <li>{abreviar(item.paciente)} - {item.time.substr(0, 5  )}</li>
+                                            )
+                                    })}
                                 </ul>
                             </div>
                             <div>
                                 <h2>Pendentes</h2>
                                 <ul>
-                                    <li>Adicionar conclusão (8)</li>
+                                    <li>Adicionar conclusão ({pendentes})</li>
                                 </ul>
                             </div>
                         </section>
                         <section className="main-table container-column w-full">
                             <div className="title-next container space-between al-center">
                                 <h2>Próximos agendamentos</h2>
-                                <input  className="main-button common-button" placeholder="Pesquisar por nome "  value={filtro} onChange={e => setFiltro(e.target.value)}/>
-                                <img  src={lupa} onClick={filtrar}/>
-                                
+                                <div className='pesquisa-box'>
+                                    <input className="main-button common-button" placeholder="Pesquisar por nome "  value={filtro} onChange={e => setFiltro(e.target.value)} />
+                                    <button className='pesquisa' onClick={filtrar}><img src={lupa} /></button>
+                                </div>
                             </div>
                             <div className="next-schedules-card container-column w-full">
                                 <table className="w-full">
                                     <tbody>
-
-                                         {consulta.map(item => 
-                                            
+                                         {consulta.map(item =>  
                                             <tr>
-                                            <td>{item.paciente}</td>
-                                            <div>
-                                                <td>
-                                                    <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
-                                                        <path d="M2.03477 3.71425L0.992758 4.04084L1.18314 3.15569L2.12078 2.02704L2.12084 2.02709L2.12255 2.02478L2.69789 1.2451L3.54092 1.81239L2.03477 3.71425Z" stroke="black" stroke-width="0.1"/>
-                                                        <path d="M2.74557 1.166L3.27139 0.435584L4.10366 1.0347L3.57783 1.76512L2.74557 1.166Z" stroke="black" stroke-width="0.1"/> 
-                                                    </svg>                                            
-                                                    <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
-                                                    </svg>    
-                                                    <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg"  onClick={() => consultaRemover(item.id, item.paciente)}> {/* Colocar o X de deletar */}
-                                                    <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2" />
-                                                    
-                                                    </svg>                  
-                                                </td>                                          
-                                                <td>{item.date.substr(0, 10)}</td>
-                                                <td>{item.time.substr(0, 5  )}</td>
-                                            </div>
-                                        </tr>  
-                                            
-                                            )}
-
-                                      
+                                                <td>{item.paciente}</td>
+                                                <div>
+                                                    <td>
+                                                        <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
+                                                            <path d="M2.03477 3.71425L0.992758 4.04084L1.18314 3.15569L2.12078 2.02704L2.12084 2.02709L2.12255 2.02478L2.69789 1.2451L3.54092 1.81239L2.03477 3.71425Z" stroke="black" stroke-width="0.1"/>
+                                                            <path d="M2.74557 1.166L3.27139 0.435584L4.10366 1.0347L3.57783 1.76512L2.74557 1.166Z" stroke="black" stroke-width="0.1"/> 
+                                                        </svg>                                            
+                                                        <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
+                                                        </svg>    
+                                                        <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg"  onClick={() => consultaRemover(item.id, item.paciente)}> {/* Colocar o X de deletar */}
+                                                            <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2" />
+                                                        </svg>                  
+                                                    </td>                                          
+                                                    <td>{item.date.substr(0, 10)}</td>
+                                                    <td>{item.time.substr(0, 5  )}</td>
+                                                </div>
+                                            </tr>  
+                                        )}
                                     </tbody>
                                 </table>
                             </div>

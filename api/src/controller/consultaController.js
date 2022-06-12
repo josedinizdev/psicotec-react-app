@@ -96,6 +96,21 @@ server.get('/consulta/busca', async (req, resp) => {
     }
 })
 
+server.get('/consulta/busca/futuro/filtro', async (req, resp) => {
+    try {
+        const { nome } = req.query;
+        const resposta = await consultarPorNomeHoje(nome);
+        if (!resposta)
+            resp.status(404).send([])
+        else
+            resp.send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })        
+    }
+})
+
 server.get('/consulta/busca/futuro', async (req, resp) => {
     try{
         const resposta = await consultarProximos();
@@ -113,22 +128,6 @@ server.get('/consulta/busca/presente', async (req, resp) => {
     } catch(err){
         console.log(err)
         resp.status(404).send({erro: err})
-    }
-})
-
-server.get('/consulta/busca/presente/:nome', async (req, resp) => {
-    try {
-        const { nome } = req.params;
-        const resposta = await consultarPorNomeHoje(nome);
-
-        if (!resposta)
-            resp.status(404).send([])
-        else
-            resp.send(resposta);
-    } catch (err) {
-        resp.status(404).send({
-            erro: err.message
-        })        
     }
 })
 

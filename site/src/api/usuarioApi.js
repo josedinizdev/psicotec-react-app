@@ -10,6 +10,10 @@ export async function login(logar, senha){
             senha: senha
         });
 
-        return r.data;
+    return r.data;
 } 
 
+export async function consultarFotoDePerfil(usuario){
+    const resposta = await api.get(`/usuario/perfil?id=${usuario}`)
+    return resposta.data
+}

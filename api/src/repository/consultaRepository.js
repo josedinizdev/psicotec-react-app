@@ -77,13 +77,13 @@ export async function consultarPorNome(nome){
 export async function consultarPorNomeHoje(nome){
   const comando = `
       SELECT 
-             id_consulta   id, 
+             id_consulta      id, 
              NM_PACIENTE		  paciente,
              HR_HORA				  time,
              DT_CONSULTA	  	date
         FROM tb_consulta
        WHERE nm_paciente like  ?
-         AND DT_CONSULTA = current_date();
+         AND DT_CONSULTA > current_date()
    `;
   const [linhas]= await con.query(comando, [`%${nome}%`]);
   return linhas;

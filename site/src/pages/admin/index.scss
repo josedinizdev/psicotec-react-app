@@ -190,21 +190,30 @@
         width: 60%;
     }
     
-    .title-next button, .main-button{
+    .main-button{
         padding: 0.8rem 1.2rem !important;
         background-color: #9F99DC;
-        color: #fff;
-       
-        
+        color: #fff;   
     }
     
     .title-next{
         margin-bottom: 1.2rem;
     }
     
-    .title-next > img {
-        width: 1rem !important;
-        height: auto !important;
+    .title-next > div > button{
+        border: none;
+        cursor: pointer;
+        background-color: #65609C;
+        width: 3rem;
+        height: 3rem;
+        padding: 1rem;
+        border-radius: 3rem;
+        margin-left: 0.5rem;
+    }
+
+    .title-next > div > button > img {
+        width: 1rem;
+        height: auto;
     }
 
     tr td svg{
