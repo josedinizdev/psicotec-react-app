@@ -33,7 +33,7 @@ server.delete('/consulta/:id', async (req, resp) =>{
         const resposta = await removerConsulta(id);
         if (resposta != 1)
             throw new Error('Consulta não pode ser removida')
-        resp.status(204).send(  )
+        resp.status(204).send();
     } catch (err) {
         resp.status(400).send({ 
             erro: err.message

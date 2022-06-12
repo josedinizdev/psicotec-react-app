@@ -97,10 +97,14 @@ export default function Index(){
                                                     </svg>                                            
                                                     <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
-                                                    </svg>                                            
+                                                    </svg>
+                                                    <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
+                                                    <path d="M2.04557 5.166L3.27139 0.235584L4.10366  " stroke="red" stroke-width="0.4" />                                      
+                                                    </svg>                                                 
                                                 </td>
                                                 <td>{item.date.substr(0, 10)}</td>
-                                                <td>{item.time.substr(0, 5  )}</td>
+                                                <td>{item.time.substr(0, 5)}</td>
                                             </div>
                                         </tr> 
                                         )}

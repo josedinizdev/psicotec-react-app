@@ -47,7 +47,8 @@ export async function alterarConsulta(id, agendamento) {
 
 export async function consultarTodos(){
   const comando = 
-  `SELECT            
+  `SELECT     
+  id_consulta   id,       
   NM_PACIENTE		paciente,
   HR_HORA				time,
   DT_CONSULTA		date
@@ -60,7 +61,9 @@ export async function consultarTodos(){
 
 export async function consultarPorNome(nome){
   const comando = `
-      SELECT NM_PACIENTE		  paciente,
+      SELECT 
+             id_consulta          id, 
+             NM_PACIENTE		  paciente,
              HR_HORA				  time,
              DT_CONSULTA	  	date
         FROM tb_consulta
@@ -73,7 +76,9 @@ export async function consultarPorNome(nome){
 
 export async function consultarPorNomeHoje(nome){
   const comando = `
-      SELECT NM_PACIENTE		  paciente,
+      SELECT 
+             id_consulta   id, 
+             NM_PACIENTE		  paciente,
              HR_HORA				  time,
              DT_CONSULTA	  	date
         FROM tb_consulta
@@ -86,7 +91,8 @@ export async function consultarPorNomeHoje(nome){
 
 export async function consultarProximos(){
     const command = `
-        SELECT NM_PACIENTE		paciente,
+        SELECT id_consulta    id, 
+               NM_PACIENTE		paciente,
                DT_CONSULTA    date,
                HR_HORA	      time
           FROM tb_consulta

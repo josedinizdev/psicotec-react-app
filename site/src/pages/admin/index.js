@@ -4,8 +4,12 @@ import React, { useEffect, useState } from "react"
 import Helmet from 'react-helmet'
 import { Link, useNavigate } from 'react-router-dom'
 import storage from 'local-storage'
+import lupa from '../../images/lupa.png'
+import { confirmAlert } from 'react-confirm-alert'
+import { toast, ToastContainer } from 'react-toastify'
 
-import { listarTodasConsultas, BuscarFilmesPorNome, consultarProximos, BuscarPresente } from '../../api/consultarApi'
+import { listarTodasConsultas, BuscarConsultasPorNome, consultarProximos, BuscarPresente } from '../../api/consultarApi'
+import { removerConsulta } from '../../api/alteracoesAPI'
 
 import logo from '../../images/logo.png';
 import profile_pic from '../../images/profile-picture.jfif';
@@ -30,11 +34,40 @@ const abreviar = nome => {
 
 export default function Index(){
 
-
-
     const [popUp, setPopUp] = useState(false);
     const [usuario, setUsuario] = useState('-');
     const [consulta, setConsulta] = useState ([]);
+    const [filtro, setFiltro] = useState('');
+
+    async function consultaRemover(id, nome){
+    
+        confirmAlert({
+        title: 'Remover Consulta',
+        message: `Deseja remover a consulta ${nome}`,
+        buttons: [
+            {
+              label: 'Sim',  
+              onClick: async () => {  
+                
+                const resposta = await removerConsulta(id, nome);
+                if (filtro === '')
+                   carregarTodasConsultas();
+                else
+                   filtrar();
+                toast (' 🗑️ Consulta Removida');
+               }
+
+            },
+            
+            {
+                label: 'Não'
+            }
+        ]
+    })
+    }
+
+
+  
 
     const togglePopUp = () => {
         setPopUp(!popUp)
@@ -43,6 +76,10 @@ export default function Index(){
     const navigate = useNavigate();
 
     
+    async function filtrar(){
+        const resp = await BuscarConsultasPorNome(filtro)
+        setConsulta(resp);
+    }
 
     function sairClick(){
 
@@ -73,6 +110,7 @@ useEffect(()=> {
     
     return(
         <div className='admin-page'>
+            <ToastContainer/>
             <Helmet>
                 <meta charset="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -156,6 +194,7 @@ useEffect(()=> {
                             <line y1="50%" x2="100%" y2="50%" stroke="white"/>
                             <line y1="100%" x2="100%" y2="100%" stroke="#979797"/>
                         </svg> 
+                        
                     </Link>
                 </aside>
                 <div className="container-column w-full">
@@ -185,7 +224,9 @@ useEffect(()=> {
                         <section className="main-table container-column w-full">
                             <div className="title-next container space-between al-center">
                                 <h2>Próximos agendamentos</h2>
-                                <input className="main-button common-button" placeholder="Pesquisar por nome"></input>
+                                <input  className="main-button common-button" placeholder="Pesquisar por nome "  value={filtro} onChange={e => setFiltro(e.target.value)}/>
+                                <img  src={lupa} onClick={filtrar}/>
+                                
                             </div>
                             <div className="next-schedules-card container-column w-full">
                                 <table className="w-full">
@@ -200,12 +241,16 @@ useEffect(()=> {
                                                     <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
                                                         <path d="M2.03477 3.71425L0.992758 4.04084L1.18314 3.15569L2.12078 2.02704L2.12084 2.02709L2.12255 2.02478L2.69789 1.2451L3.54092 1.81239L2.03477 3.71425Z" stroke="black" stroke-width="0.1"/>
-                                                        <path d="M2.74557 1.166L3.27139 0.435584L4.10366 1.0347L3.57783 1.76512L2.74557 1.166Z" stroke="black" stroke-width="0.1"/>
+                                                        <path d="M2.74557 1.166L3.27139 0.435584L4.10366 1.0347L3.57783 1.76512L2.74557 1.166Z" stroke="black" stroke-width="0.1"/> 
                                                     </svg>                                            
                                                     <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
-                                                    </svg>                                            
-                                                </td>
+                                                    </svg>    
+                                                    <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg"  onClick={() => consultaRemover(item.id, item.paciente)}> {/* Colocar o X de deletar */}
+                                                    <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2" />
+                                                    
+                                                    </svg>                  
+                                                </td>                                          
                                                 <td>{item.date.substr(0, 10)}</td>
                                                 <td>{item.time.substr(0, 5  )}</td>
                                             </div>

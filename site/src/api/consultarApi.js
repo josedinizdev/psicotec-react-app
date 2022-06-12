@@ -9,8 +9,8 @@ export async function listarTodasConsultas() {
     return resposta.data;
 }
 
-export async function BuscarConsultarPorNome() {
-    const resposta = await api.get('/consulta/busca?nome={nome} ')
+export async function BuscarConsultasPorNome(nome) {
+    const resposta = await api.get(`/consulta/busca?nome=${nome} `)
     return resposta.data;
 }
 

@@ -202,6 +202,11 @@
         margin-bottom: 1.2rem;
     }
     
+    .title-next > img {
+        width: 1rem !important;
+        height: auto !important;
+    }
+
     tr td svg{
         height: 1rem;
         width: 1rem;
@@ -257,5 +262,7 @@
         li{
             font-size: 0.9rem;
         }
+       
+       
     }
 }
