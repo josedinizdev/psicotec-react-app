@@ -28,6 +28,12 @@ export async function buscarPorNomeProximos(nome){
     return resposta.data;
 }
 
+export async function buscarPorId(id){
+    const resposta = await api.get(`/consulta/busca/id/${id}`)
+    return resposta.data;
+}
+///consulta/buscaid
+
 export async function buscarPendentes(){
     const resposta = await api.get('/consulta/busca/presente')
     return resposta.data
@@ -37,6 +43,22 @@ export async function cadastrar(paciente, administrador, nascimento, hora, gener
     const resposta = await api.post('/agendamento', {
         paciente: paciente,
         administrador: administrador,
+        nascimento: nascimento,
+        hora: hora,
+        genero: genero,
+        consultar: consultar,
+        pai: pai,
+        mae: mae,
+        descricao: descricao,
+        conclusao: conclusao
+    })
+    return resposta.data
+}
+export async function editar(id, paciente, nascimento, hora, genero, consultar, pai, mae, descricao, conclusao){
+    console.log(id)
+    const resposta = await api.put(`/agendamento/${id}`, {
+        id: id,
+        paciente: paciente,
         nascimento: nascimento,
         hora: hora,
         genero: genero,

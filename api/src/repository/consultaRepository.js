@@ -51,8 +51,8 @@ export async function consultarTodos(){
   id_consulta   id,       
   NM_PACIENTE		paciente,
   HR_HORA				time,
-  DT_CONSULTA		date
-
+  DT_CONSULTA		date,
+  DS_CONCLUSAO  conclusao
   FROM tb_consulta`;
 
   const [linhas]= await con.query(comando);
@@ -65,7 +65,8 @@ export async function consultarPorNome(nome){
              id_consulta          id, 
              NM_PACIENTE		  paciente,
              HR_HORA				  time,
-             DT_CONSULTA	  	date
+             DT_CONSULTA	  	date,
+             DS_CONCLUSAO     conclusao
         FROM tb_consulta
        WHERE nm_paciente like  ?
    `;
@@ -73,6 +74,24 @@ export async function consultarPorNome(nome){
   return linhas;
 }
 
+export async function consultarPorId(id){
+  const comando = `
+      SELECT id_administrador    id, 
+             nm_paciente         nome, 
+             nm_pai              pai, 
+             nm_mae              mae, 
+             dt_nascimento       nasc, 
+             hr_hora             hr, 
+             dt_consulta         dtconc, 
+             ds_genero           genero,
+             ds_descricao        descricao,
+             ds_conclusao        conc
+        FROM tb_consulta
+       WHERE id_consulta = ?
+   `;
+  const [linhas]= await con.query(comando, [id]);
+  return linhas[0];
+}
 
 export async function consultarPorNomeHoje(nome){
   const comando = `
@@ -80,10 +99,11 @@ export async function consultarPorNomeHoje(nome){
              id_consulta      id, 
              NM_PACIENTE		  paciente,
              HR_HORA				  time,
-             DT_CONSULTA	  	date
+             DT_CONSULTA	  	date,
+             DS_CONCLUSAO     conclusao
         FROM tb_consulta
        WHERE nm_paciente like  ?
-         AND DT_CONSULTA > current_date()
+         AND DT_CONSULTA >= current_date()
    `;
   const [linhas]= await con.query(comando, [`%${nome}%`]);
   return linhas;
@@ -94,9 +114,10 @@ export async function consultarProximos(){
         SELECT id_consulta    id, 
                NM_PACIENTE		paciente,
                DT_CONSULTA    date,
-               HR_HORA	      time
+               HR_HORA	      time,
+               DS_CONCLUSAO     conclusao
           FROM tb_consulta
-         WHERE DT_CONSULTA > current_date()`
+         WHERE DT_CONSULTA >= current_date()`
     const [linhas] = await con.query(command) 
     return linhas
 } 

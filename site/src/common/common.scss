@@ -3,6 +3,11 @@
     <span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span>
 */
 
+@keyframes aumentar {
+    from { font-size: 0.9rem;}
+    to   { font-size: 1.3em;}
+}
+
 .ptc-orange{
     color: #ffaa05 !important;
     font-family: 'josefinsans-semibold' !important;
@@ -149,3 +154,9 @@ main{
     background-color: #2b2b2b;
     opacity: .4;
 }
+
+.animacao-1:hover:before{
+    animation: aumentar 0.5s;
+    animation-fill-mode: forwards;
+}
+

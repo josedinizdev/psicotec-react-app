@@ -1,3 +1,4 @@
+
 .admin-page{   
     input, textarea{
         padding: 0.5rem;
@@ -224,7 +225,18 @@
     .next-before div{
         width: 13rem;
     }
-    
+
+    .usuarioLetter{
+        font-size: 3rem;
+        background-color: #fff;
+        width: 4rem;
+        height: 4rem;
+        text-align: center;
+        line-height: 2.3rem;
+        border-radius: 2rem;
+        border: solid 6px #000;
+    }
+
     @media (min-width: 1500px) {
         td{
             font-size: 1.4rem;
@@ -272,6 +284,7 @@
             font-size: 0.9rem;
         }
        
-       
+
     }
+
 }

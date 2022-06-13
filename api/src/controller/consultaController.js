@@ -1,4 +1,4 @@
-import { alterarConsulta, consultarPorNome, consultarTodos, criarConsulta, removerConsulta, consultarProximos, consultarParaHoje, consultarPendentes, consultarPorNomeHoje } from '../repository/consultaRepository.js'
+import { alterarConsulta, consultarPorNome, consultarPorId, consultarTodos, criarConsulta, removerConsulta, consultarProximos, consultarParaHoje, consultarPendentes, consultarPorNomeHoje } from '../repository/consultaRepository.js'
 import { Router } from 'express'
 
 const server = Router();
@@ -43,7 +43,7 @@ server.delete('/consulta/:id', async (req, resp) =>{
 
 server.put ('/consulta/:id', async (req, resp) => {
     try {
-        const { id } = req.params;
+        const { id } = req.params
         const agendamento = req.body;
 
         if(!agendamento.paciente)
@@ -78,6 +78,22 @@ server.get('/consulta', async (req, resp) => {
             erro:err.message
         });
     } 
+})
+
+server.get('/consulta/busca/id/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+        const resposta = await consultarPorId(id);
+        if (!resposta)
+            resp.status(400).send([])
+        else
+            resp.send(resposta);
+    } catch (err) {
+        console.log(err.message)
+        resp.status(400).send({
+            erro: err.message
+        })        
+    }
 })
 
 server.get('/consulta/busca', async (req, resp) => {

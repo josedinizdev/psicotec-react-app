@@ -17,3 +17,10 @@ export async function consultarFotoDePerfil(usuario){
     const resposta = await api.get(`/usuario/perfil?id=${usuario}`)
     return resposta.data
 }
+
+export async function enviarFotoDePerfil(id, imagem) {
+    const formData = new formData();
+    formData.append('capa', imagem);
+
+    const resposta = await api.put(`/`)
+}

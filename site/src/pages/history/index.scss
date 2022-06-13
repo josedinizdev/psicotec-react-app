@@ -1,4 +1,69 @@
 .history-page{
+    input, textarea{
+        padding: 0.5rem;
+    }
+
+    .popUp{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .popUp-box{
+        position: fixed;
+        background-color: #9F99DC;
+        border-radius: 1.4rem;
+        width: 40rem;
+        padding: 1rem 1.6rem;
+       
+    }
+
+    .popUp-box .common-button:hover{
+        background-color: #b7b1ff9b;
+        color: #fff !important;
+    }
+
+    .common-button:hover, a:hover{
+        color: #b7b1ff9b;
+    }
+
+    .popUp-box > div:nth-child(1) button{
+        font-family: 'josefinsans-semibold' !important;
+        background-color: #9F99DC;
+        border: none;
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    .popUp-box > div:nth-child(1) button:hover{
+        color: #979797;
+    }
+
+    .popUp-box form div div input, .popUp-box form div div textarea{
+        border-radius: 0.5rem;
+        border: none;
+        height: 2rem;
+        font-size: 1.2rem;
+        font-family: 'josefinsans-regular';
+        margin-bottom: 1rem;
+    }
+
+    .popUp-box form div:nth-child(1) div, .popUp-box form div:nth-child(2) div{
+        width: 48%;
+    }
+
+    .popUp-box form div:nth-child(3) div{
+        width: 31%;
+    }
+
+    .popUp-box form div:nth-child(n+4) div textarea{
+        height: 6.4rem;
+    }
+
+    .popUp-box label{
+        color: #fff;
+    }
+
     .common-button:hover, a:hover{
         color: #b7b1ff9b;
     }
@@ -76,7 +141,22 @@
     }
     
     /* main */
-    
+    .title-next > div > button{
+        border: none;
+        cursor: pointer;
+        background-color: #65609C;
+        width: 3rem;
+        height: 3rem;
+        padding: 1rem;
+        border-radius: 3rem;
+        margin-left: 0.5rem;
+    }
+
+    .title-next > div > button > img {
+        width: 1rem;
+        height: auto;
+    }
+
     main ul{
         list-style: inside;
     }

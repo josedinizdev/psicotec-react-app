@@ -28,14 +28,7 @@ export default function Index(){
                     </div>
                     <div className="container-column header-side-ll space-between">
                         <div className="header-login container zi-2 space-between al-center">
-                            <Link to='/login'>login</Link>
-                            <Link to='/'>
-                                <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <line y1="0%" x2="100%" y2="0%" stroke="#001AFF"/>
-                                    <line y1="50%" x2="100%" y2="50%" stroke="#FFFFFF"/>
-                                    <line y1="100%" x2="100%" y2="100%" stroke="#FFAA05"/>
-                                </svg>     
-                            </Link>               
+                            <Link to='/login'>login</Link>       
                         </div>
                         <div className="logo-svg container zi-2">
                             <Link className="logo-link" to="/">
