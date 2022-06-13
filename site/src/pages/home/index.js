@@ -21,18 +21,18 @@ export default function Index(){
             </Helmet>
             <header>
                 <section className="container w-full max-width-visibility space-between">
-                    <div className="header-title container zi-2">
+                    <div className="header-title container zi-2 animacao-chegando">
                         <h1>
                             <span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span> Sempre em busca do seu melhor
                         </h1>
                     </div>
                     <div className="container-column header-side-ll space-between">
-                        <div className="header-login container zi-2 space-between al-center">
+                        <div className="header-login container zi-2 space-between al-center animacao-chegando">
                             <Link to='/login'>login</Link>       
                         </div>
-                        <div className="logo-svg container zi-2">
-                            <Link className="logo-link" to="/">
-                                <img src={logo} alt='PsicoTEC logo' />
+                        <div className="logo-svg container zi-2 animacao-chegando">
+                            <Link className="logo-link " to="/">
+                                <img className='animacao-chegando-logo' src={logo} alt='PsicoTEC logo' />
                             </Link>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ export default function Index(){
                             na vida das pessoas
                         </p>
                         <div className="container w-full">
-                            <a href='#avalie'><button className="common-button">Entre em contato</button></a>
+                            <a href='#avalie'><button className="common-button animacao-botao-espacamento">Entre em contato</button></a>
                         </div>
                     </div>
                 </section>
@@ -148,7 +148,7 @@ export default function Index(){
                                 <textarea className="common-button df-button-input" placeholder="Digite aqui sua opinião sobre o site"></textarea>
                             </form>
                             <div className="w-full">
-                                <button className="common-button">Enviar Avaliação</button>
+                                <button className="common-button animacao-botao-espacamento">Enviar Avaliação</button>
                             </div>
                         </div>
                     </div>

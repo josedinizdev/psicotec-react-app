@@ -24,3 +24,16 @@ export async function enviarFotoDePerfil(id, imagem) {
 
     const resposta = await api.put(`/`)
 }
+
+
+export async function inserirImagemConsulta(id, imagem){
+        const formData = new FormData();
+        formData.append('perfil', imagem);
+
+        const resposta = await api.put(`/consulta/${id}/perfil`, formData, {
+            headers: {
+                "content-type": "multipart/form-data"
+            },
+        });
+        return resposta.status;
+}

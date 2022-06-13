@@ -1,7 +1,13 @@
 import { alterarConsulta, consultarPorNome, consultarPorId, consultarTodos, criarConsulta, removerConsulta, consultarProximos, consultarParaHoje, consultarPendentes, consultarPorNomeHoje } from '../repository/consultaRepository.js'
+
+import multer from 'multer'
+
 import { Router } from 'express'
+import { alterarImagem } from '../repository/usuarioRepository.js';
 
 const server = Router();
+const upload = multer({ dest: 'storage/perfilUser'})
+ 
 
 server.post('/agendamento', async (req, resp) => {
     try{
@@ -56,7 +62,7 @@ server.put ('/consulta/:id', async (req, resp) => {
             throw new Error ('Genero do paciente é obrigatório!');
         if(!agendamento.consultar)
             throw new Error ('Data da consulta obrigatório');
-            
+        
         const resposta = await alterarConsulta(id, agendamento);
         if (resposta != 1)
             throw new Error('Consulta não pode ser alterado')
@@ -154,6 +160,23 @@ server.get('/consulta/busca/pendentes', async (req, resp) => {
     } catch(err){
         console.log(err)
         resp.status(404).send({erro: err})
+    }
+})
+
+server.put('/consulta/:id/perfil',upload.single('perfil') ,async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const imagem = req.file.path;
+
+        const resposta = await alterarImagem(imagem, id);
+        if (resposta != 1)
+            throw new Error("A imagem não foi salva.")
+        resp.status(204).send();
+        
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
     }
 })
 

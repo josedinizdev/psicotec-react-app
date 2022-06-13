@@ -144,3 +144,4 @@ export async function consultarPendentes(){
   const [linhas] = await con.query(command) 
   return linhas
 }
+

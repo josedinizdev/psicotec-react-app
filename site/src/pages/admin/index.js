@@ -26,6 +26,8 @@ export default function Index(){
     const [filtro, setFiltro] = useState('');
     const [pendentes, setPedentes] = useState(0);
 
+    const [img, setImg] = useState()
+
     // adicionar conclusao
     const [addConc, setAddConc] = useState('')
 
@@ -130,6 +132,15 @@ export default function Index(){
         setNConc(resp.conc)
     }
 
+    function escolherImagem(){
+
+        document.getElementById('imagemPerfil').click();
+    }
+    
+    function mostrarImagem(){
+        return URL.createObjectURL(img);
+    }
+    
     function editarAgendamento(){
         return(
         <div className="popUp wh-full container-column">
@@ -335,9 +346,31 @@ export default function Index(){
                 </aside>
                 <div className="container-column w-full">
                     <header className="container w-full">
-                        {/* A imagem esta aqui */}
                         <div> 
-                            <div className='usuarioLetter'>{usuario[0]}</div>
+                            <div className='usuarioLetter' onClick={escolherImagem}>
+                                {!img &&(
+                                    <div>
+                                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="6.5" x2="6.5" y2="11" stroke="#7B7B7B"/>
+                                            <line x1="0.353553" y1="8.64645" x2="6.71751" y2="15.0104" stroke="#7B7B7B"/>
+                                            <line x1="12.7175" y1="8.35355" x2="6.35355" y2="14.7175" stroke="#7B7B7B"/>
+                                        </svg>
+                                    </div>
+                                )}
+                                {img &&(
+                                    <img className='imagem-perfil'src={mostrarImagem()} alt='' />
+                                )}
+                                <input type='file' id='imagemPerfil' onChange={e => setImg(e.target.files[0])}/> 
+                            </div>
+                            <div>
+                                <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                    <rect x="0.5" y="0.5" width="14" height="16" rx="2.5" fill="white" stroke="black"/>
+                                    <line x1="9.5" x2="9.5" y2="5" stroke="black"/>
+                                    <line x1="7.5" y1="6" x2="7.5" y2="13" stroke="black"/>
+                                    <line x1="4" y1="9.5" x2="11" y2="9.5" stroke="black"/>
+                                    <line x1="14" y1="5.5" x2="9" y2="5.5" stroke="black"/>
+                                </svg>
+                            </div>
                         </div>    
                         <h1>Bem vindo(a) {usuario}</h1>
                     </header>

@@ -33,3 +33,13 @@ export async function exibirPerfil(id){
     const [linhas] = await con.query(comando, [id])
     return linhas[0];
 }
+
+export async function alterarImagem(imagem, id){
+  const comando = `
+    update tb_administrador
+        set img_perfil = ?
+    where id_administrador =?
+  `;
+  const [resposta] = await con.query(comando, [imagem, id]);
+  return resposta.affectedRows;
+}

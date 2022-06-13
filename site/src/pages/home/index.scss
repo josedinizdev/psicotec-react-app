@@ -1,3 +1,54 @@
+@keyframes left {
+    from {
+        padding: -2rem 0 0 -3rem;
+    }
+    to {
+        padding: 2rem 0 0 3rem;
+    }
+     
+}
+@keyframes logo-left {
+    from {
+        width: 5rem;
+    }
+    to {
+        width: 7.4rem;
+    }
+}
+
+
+@keyframes espacamento {
+    from {
+        width: fit-content;
+        height: fit-content;
+        padding: 1.2rem 1.4rem;
+    }
+    to {
+        width: fit-content;
+        height: fit-content;
+        padding: 1.2rem 1.5rem;
+        letter-spacing: 0.9rem;
+    }
+}
+
+.animacao-chegando {
+    animation: left;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.animacao-chegando-logo {
+    animation: logo-left;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.animacao-botao-espacamento:hover {
+    animation: espacamento;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
 .home-page{
     h1, h2, h3, h4, h5, h6, label{
         font-family: 'josefinsans-semibold' !important;
@@ -160,7 +211,7 @@
         padding: 1rem;
         position: relative;
     }
-    
+
     .main-services-cards > div:nth-child(1){
         display: flex;
         justify-content: flex-end;
