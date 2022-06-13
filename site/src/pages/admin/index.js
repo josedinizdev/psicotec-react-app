@@ -24,7 +24,7 @@ export default function Index(){
     const [usuario, setUsuario] = useState('-');
     const [consulta, setConsulta] = useState([]);
     const [filtro, setFiltro] = useState('');
-    const [pendentes, setPedentes] = useState(0);
+    const [pendentes, setPendentes] = useState(0);
 
     const [img, setImg] = useState()
 
@@ -63,7 +63,8 @@ export default function Index(){
             else
                 toast('Agendamento criado')
         } catch(err){
-            toast(err.message)
+          
+            toast(err.response.data.erro)
         }
     }
 
@@ -83,7 +84,7 @@ export default function Index(){
     async function consultaRemover(id, nome){
         confirmAlert({
         title: 'Remover Consulta',
-        message: `Deseja remover a consulta ${nome}`,
+        message: `Deseja remover a consulta do paciente: ${nome}`,
         buttons: [
             {
               label: 'Sim',  
@@ -106,6 +107,8 @@ export default function Index(){
     })
     }
 
+   
+
     const togglePopUp = () => {
         setPopUp(!popUp)
     }
@@ -118,6 +121,10 @@ export default function Index(){
         const resp = await buscarPorNomeProximos(filtro)
         setConsulta(resp);
     }
+    useEffect(() => {
+        buscarPorNomeProximos();
+
+    }, [getEdit])
 
     async function getEdit(id){
         const resp = await buscarPorId(id)
@@ -131,6 +138,7 @@ export default function Index(){
         setNDetal(resp.descricao)
         setNConc(resp.conc)
     }
+    
 
     function escolherImagem(){
 
@@ -294,7 +302,7 @@ export default function Index(){
 
     async function carregarParaHoje(){
         let resp = await buscarPresente();
-        if(resp == [])
+        if(resp === [])
             resp = {nenhum: true}
         setParaHoje(resp); 
     }
@@ -305,7 +313,7 @@ export default function Index(){
 
     async function carregarPendentes(){
         let resp = await buscarPendentes();
-        setPedentes(resp.length)
+        setPendentes(resp.length)
     }
 
     useEffect(() => {
@@ -402,7 +410,7 @@ export default function Index(){
                             <div className="title-next container space-between al-center">
                                 <h2>Próximos agendamentos</h2>
                                 <div className='pesquisa-box'>
-                                    <input className="main-button common-button" placeholder="Pesquisar por nome "  value={filtro} onChange={e => setFiltro(e.target.value)} />
+                                    <input className="main-button common-button" placeholder="Pesquisar"  value={filtro} onChange={e => setFiltro(e.target.value)} />
                                     <button className='pesquisa'  onClick={filtrar}><img src={lupa} /></button>
                                 </div>
                             </div>

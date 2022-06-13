@@ -318,7 +318,7 @@ export default function Index(){
                             <div className="title-next container space-between al-center">
                                 <h2 >Histórico de Agendamentos</h2>
                                 <div className='pesquisa-box'>
-                                    <input className="main-button common-button" placeholder="Pesquisar por nome "  value={filtro} onChange={e => setFiltro(e.target.value)} />
+                                    <input className="main-button common-button" placeholder="Pesquisar nome/data"  value={filtro} onChange={e => setFiltro(e.target.value)} />
                                     <button className='pesquisa'  onClick={filtrar}><img src={lupa} /></button>
                                 </div>
                             </div>

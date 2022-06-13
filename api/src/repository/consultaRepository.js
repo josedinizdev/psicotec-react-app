@@ -109,9 +109,12 @@ export async function consultarPorNomeHoje(nome){
   return linhas;
 }
 
+{/* date_format(dt_nascimento, '%d/%m/%Y'), '%Y-%m-%d') */}
+
 export async function consultarProximos(){
     const command = `
-        SELECT id_consulta    id, 
+SELECT  
+              id_consulta    id, 
                NM_PACIENTE		paciente,
                DT_CONSULTA    date,
                HR_HORA	      time,
