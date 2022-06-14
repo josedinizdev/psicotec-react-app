@@ -34,7 +34,7 @@ export async function alterarConsulta(id, agendamento) {
       NM_MAE                  =?, 
       DT_NASCIMENTO           =?, 
       HR_HORA                 =?, 
-      DT_CONSULTA             =?, 
+      dt_consulta             =?,
       DS_GENERO               =?, 
       DS_DESCRICAO            =?,  
       DS_CONCLUSAO            =?
@@ -51,7 +51,7 @@ export async function consultarTodos(){
   id_consulta   id,       
   NM_PACIENTE		paciente,
   HR_HORA				time,
-  DT_CONSULTA		date,
+  DATE_FORMAT(DT_CONSULTA, "%Y/%m/%d")       date,
   DS_CONCLUSAO  conclusao
   FROM tb_consulta`;
 
@@ -65,7 +65,7 @@ export async function consultarPorNome(nome){
              id_consulta          id, 
              NM_PACIENTE		  paciente,
              HR_HORA				  time,
-             DT_CONSULTA	  	date,
+             DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       date,
              DS_CONCLUSAO     conclusao
         FROM tb_consulta
        WHERE nm_paciente like  ?
@@ -80,9 +80,9 @@ export async function consultarPorId(id){
              nm_paciente         nome, 
              nm_pai              pai, 
              nm_mae              mae, 
-             dt_nascimento       nasc, 
+             DATE_FORMAT(DT_NASCIMENTO, "%d/%m/%Y")       nasc, 
              hr_hora             hr, 
-             dt_consulta         dtconc, 
+             DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       dtconc, 
              ds_genero           genero,
              ds_descricao        descricao,
              ds_conclusao        conc
@@ -99,7 +99,7 @@ export async function consultarPorNomeHoje(nome){
              id_consulta      id, 
              NM_PACIENTE		  paciente,
              HR_HORA				  time,
-             DT_CONSULTA	  	date,
+             DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       date,
              DS_CONCLUSAO     conclusao
         FROM tb_consulta
        WHERE nm_paciente like  ?
@@ -116,7 +116,7 @@ export async function consultarProximos(){
 SELECT  
               id_consulta    id, 
                NM_PACIENTE		paciente,
-               DT_CONSULTA    date,
+               DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       date,
                HR_HORA	      time,
                DS_CONCLUSAO     conclusao
           FROM tb_consulta
@@ -128,7 +128,7 @@ SELECT
 export async function consultarParaHoje(){
   const command = `
       SELECT NM_PACIENTE		paciente,
-             DT_CONSULTA    date,
+             DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       date,
              HR_HORA	      time
         FROM tb_consulta
        WHERE DT_CONSULTA = current_date();`
@@ -139,7 +139,7 @@ export async function consultarParaHoje(){
 export async function consultarPendentes(){
   const command = `
       SELECT NM_PACIENTE		paciente,
-             DT_CONSULTA    date,
+             DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       date,
              HR_HORA	      time
         FROM tb_consulta
        WHERE DT_CONSULTA < current_date() 

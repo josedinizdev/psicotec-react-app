@@ -55,8 +55,18 @@ export async function cadastrar(paciente, administrador, nascimento, hora, gener
     return resposta.data
 }
 export async function editar(id, paciente, nascimento, hora, genero, consultar, pai, mae, descricao, conclusao){
-    console.log(id)
-    const resposta = await api.put(`/agendamento/${id}`, {
+    function normalizeDate(data){
+        const year=data[6]+data[7]+data[8]+data[9];
+        const month=data[3]+data[4];
+        const day=data[0]+data[1];
+        const nascCorrect = year+'-'+month+'-'+day
+        return nascCorrect
+    }
+
+    nascimento = normalizeDate(nascimento)
+    consultar = normalizeDate(consultar)
+
+    const resposta = await api.put(`/consulta/${id}`, {
         id: id,
         paciente: paciente,
         nascimento: nascimento,

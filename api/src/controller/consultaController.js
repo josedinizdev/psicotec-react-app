@@ -69,6 +69,7 @@ server.put ('/consulta/:id', async (req, resp) => {
         else
             resp.status(204).send();
     } catch (err) {
+        console.log(err.message)
         resp.status(400).send({
             erro:err.message
         })

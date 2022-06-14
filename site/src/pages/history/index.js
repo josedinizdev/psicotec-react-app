@@ -67,7 +67,7 @@ export default function Index(){
         try{
             const resposta = await editar(nEdit, nPac, nNasc, nHr, nSexo, nDt, nPai, nMae, nDetal, nConc)
             setEdtPopUp(!edtPopUp)
-            if(!resposta)
+            if(resposta)
                 toast('Modificação não foi feita')
             else
                 toast('Agendamento editado')

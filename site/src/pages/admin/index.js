@@ -72,7 +72,7 @@ export default function Index(){
         try{
             const resposta = await editar(nEdit, nPac, nNasc, nHr, nSexo, nDt, nPai, nMae, nDetal, nConc)
             setEdtPopUp(!edtPopUp)
-            if(!resposta)
+            if(resposta)
                 toast('Modificação não foi feita')
             else
                 toast('Agendamento editado')
@@ -84,7 +84,7 @@ export default function Index(){
     async function consultaRemover(id, nome){
         confirmAlert({
         title: 'Remover Consulta',
-        message: `Deseja remover a consulta do paciente: ${nome}`,
+        message: `Deseja remover a consulta do paciente: ${nome} ? `,
         buttons: [
             {
               label: 'Sim',  
@@ -124,17 +124,17 @@ export default function Index(){
     useEffect(() => {
         buscarPorNomeProximos();
 
-    }, [getEdit])
+    }, [])
 
     async function getEdit(id){
         const resp = await buscarPorId(id)
         setNPac(resp.nome)
-        setNDt(resp.dtconc)
-        setNMae(resp.mae)
         setNNasc(resp.nasc)
-        setNPai(resp.pai)
-        setNSexo(resp.genero)
         setNHr(resp.hr)
+        setNSexo(resp.genero)
+        setNDt(resp.dtconc)
+        setNPai(resp.pai)
+        setNMae(resp.mae)
         setNDetal(resp.descricao)
         setNConc(resp.conc)
     }
@@ -165,7 +165,7 @@ export default function Index(){
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
-                                <input type='date' value={nDt} onChange={e => setNDt(e.target.value)}/>
+                                <input  value={nDt} onChange={e => setNDt(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
@@ -175,7 +175,7 @@ export default function Index(){
                             </div>
                             <div className="container-column">
                                 <label>Data de nascimento*</label>
-                                <input type='date' value={nNasc} onChange={e => setNNasc(e.target.value)}/>
+                                <input  value={nNasc} onChange={e => setNNasc(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
