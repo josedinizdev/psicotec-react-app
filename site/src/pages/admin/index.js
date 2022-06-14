@@ -77,7 +77,7 @@ export default function Index(){
             else
                 toast('Agendamento editado')
         } catch(err){
-            toast(err.message)
+            toast(err.response.data.erro)
         }
     }
     
@@ -134,7 +134,7 @@ export default function Index(){
         setNSexo(resp.genero)
         setNDt(resp.dtconc)
         setNPai(resp.pai)
-        setNMae(resp.mae)
+        setNMae(resp.mae)   
         setNDetal(resp.descricao)
         setNConc(resp.conc)
     }
