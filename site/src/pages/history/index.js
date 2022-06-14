@@ -207,7 +207,7 @@ export default function Index(){
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
-                                <input type='date' value={cDt} onChange={e => setCDt(e.target.value)}/>
+                                <input  value={cDt} onChange={e => setCDt(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
@@ -217,7 +217,7 @@ export default function Index(){
                             </div>
                             <div className="container-column">
                                 <label>Data de nascimento*</label>
-                                <input type='date' value={cNasc} onChange={e => setCNasc(e.target.value)}/>
+                                <input  value={cNasc} onChange={e => setCNasc(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">

@@ -152,6 +152,7 @@ export default function Index(){
     function editarAgendamento(){
         return(
         <div className="popUp wh-full container-column">
+            <div className='overlay'></div>
             <div className="wh-full container-column al-center jc-center">
                 <div className="popUp-box">
                     <div className="w-full container jc-end">
@@ -215,6 +216,7 @@ export default function Index(){
     function criarAgendamento(){
         return(
         <div className="popUp wh-full container-column">
+            <div className='overlay'></div>
             <div className="wh-full container-column al-center jc-center">
                 <div className="popUp-box">
                     <div className="w-full container jc-end">

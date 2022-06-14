@@ -25,6 +25,16 @@
         top: 0;
     }
 
+    .overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        color: #000;
+        opacity: .7;
+        width: 100vw;
+        height: 100vh;
+    }
+
     .popUp-box{
         position: fixed;
         background-color: #9F99DC;
@@ -265,6 +275,10 @@
         height: 4rem;
         border: solid 6px #fff;
         border-radius: 2rem;
+    }
+
+    .next-schedules-card > table > tbody > tr > div > td:nth-child(n+3){
+        width: 2.5rem;
     }
 
     @media (min-width: 1500px) {
