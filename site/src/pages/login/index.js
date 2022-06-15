@@ -78,11 +78,11 @@ export default function Index(){
                     <form className="container-column wh-full" action="">
                         <div className="container-column w-full">
                             <label for="">Usuário</label>
-                            <input className="common-button w-full" type="text" placeholder="ex.: rafael9823" value={logar} onChange={e => setLogar(e.target.value)}/>
+                            <input className="common-button w-full" type="text" placeholder="ex: rafael9823" value={logar} onChange={e => setLogar(e.target.value)}/>
                         </div>
                         <div className="container-column w-full">
                             <label for="">Senha</label>
-                            <input className="common-button w-full" type="password" placeholder="ex.: 1234c%ys" value={senha} onChange={e => setSenha(e.target.value)}/>
+                            <input className="common-button w-full" type="password" placeholder="ex: 1234c%ys" value={senha} onChange={e => setSenha(e.target.value)}/>
                         </div>
                     </form>
                     <div className="container-column al-center w-full">

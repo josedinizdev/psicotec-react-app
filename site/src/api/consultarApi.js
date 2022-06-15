@@ -35,8 +35,8 @@ export async function buscarPorId(id){
 ///consulta/buscaid
 
 export async function buscarPendentes(){
-    const resposta = await api.get('/consulta/busca/presente')
-    return resposta.data
+    const resposta = await api.get('/consulta/busca/pendentes')
+    return resposta
 }
 
 export async function cadastrar(paciente, administrador, nascimento, hora, genero, consultar, pai, mae, descricao, conclusao){

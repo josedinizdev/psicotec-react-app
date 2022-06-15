@@ -140,11 +140,17 @@ export async function consultarPendentes(){
   const command = `
       SELECT NM_PACIENTE		paciente,
              DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       date,
-             HR_HORA	      time
+             HR_HORA	      time,
+             DS_CONCLUSAO   conclusao
         FROM tb_consulta
-       WHERE DT_CONSULTA < current_date() 
-         AND DS_CONCLUSAO = NULL;`
+       WHERE DT_CONSULTA < current_date();`
   const [linhas] = await con.query(command) 
-  return linhas
+  let pendentes = 0;
+  for(let item in linhas){
+      if(!item.conclusao)
+          pendentes++
+  }
+  console.log(pendentes)
+  return pendentes
 }
 

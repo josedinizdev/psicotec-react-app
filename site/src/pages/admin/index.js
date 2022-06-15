@@ -13,6 +13,7 @@ import { buscarPorId, consultarProximos, buscarPresente, buscarPorNomeProximos, 
 import { removerConsulta } from '../../api/alteracoesAPI.js'
 import logo from '../../images/logo.png';
 import profile_pic from '../../images/profile-picture.jfif';
+import savebtn from '../../images/savebtn.svg'
 
 export default function Index(){
     const navigate = useNavigate();
@@ -62,6 +63,16 @@ export default function Index(){
                 toast('Cadastro não foi feito')
             else
                 toast('Agendamento criado')
+
+            if (filtro === '')
+            carregarTodasConsultas();
+            else
+                filtrar();
+            
+                if (filtro === '')
+            carregarParaHoje();
+            else
+                filtrar();
         } catch(err){
           
             toast(err.response.data.erro)
@@ -76,6 +87,14 @@ export default function Index(){
                 toast('Modificação não foi feita')
             else
                 toast('Agendamento editado')
+                if (filtro === '')
+            carregarTodasConsultas();
+            else
+                filtrar();
+                if (filtro === '')
+            carregarParaHoje();
+            else
+                filtrar();
         } catch(err){
             toast(err.response.data.erro)
         }
@@ -162,7 +181,7 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do paciente*</label>
-                                <input value={nPac} onChange={e => setNPac(e.target.value)}/>
+                                <input maxLength="10" value={nPac} onChange={e => setNPac(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
@@ -275,6 +294,7 @@ export default function Index(){
             </div>
         </div>
         )
+        
     }
 
     function sairClick(){
@@ -315,7 +335,8 @@ export default function Index(){
 
     async function carregarPendentes(){
         let resp = await buscarPendentes();
-        setPendentes(resp.length)
+        setPendentes(resp)
+        
     }
 
     useEffect(() => {
@@ -354,12 +375,16 @@ export default function Index(){
                         
                     </Link>
                 </aside>
+                
                 <div className="container-column w-full">
+                    
                     <header className="container w-full">
                         <div> 
+                            
                             <div className='usuarioLetter' onClick={escolherImagem}>
                                 {!img &&(
                                     <div>
+                                        
                                         <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <line x1="6.5" x2="6.5" y2="11" stroke="#7B7B7B"/>
                                             <line x1="0.353553" y1="8.64645" x2="6.71751" y2="15.0104" stroke="#7B7B7B"/>
@@ -370,6 +395,7 @@ export default function Index(){
                                 {img &&(
                                     <img className='imagem-perfil'src={mostrarImagem()} alt='' />
                                 )}
+                                
                                 <input type='file' id='imagemPerfil' onChange={e => setImg(e.target.files[0])}/> 
                             </div>
                             <div>
@@ -387,7 +413,7 @@ export default function Index(){
                     <main className="w-full container-column">
                         <section className="important container space-between w-full main-table">
                             <div>
-                                <h2>Para hoje</h2>
+                                <h2>Para hoje:</h2>
                                 <ul>
                                     {paraHoje.map(item => {
                                         if(item.nenhum === true)
@@ -398,11 +424,12 @@ export default function Index(){
                                             return(
                                                 <li>{abreviar(item.paciente)} - {item.time.substr(0, 5  )}</li>
                                             )
+                                        
                                     })}
                                 </ul>
                             </div>
                             <div>
-                                <h2>Pendentes</h2>
+                                <h2>Pendentes:</h2>
                                 <ul>
                                     <li>Adicionar conclusão ({pendentes})</li>
                                 </ul>
@@ -410,7 +437,7 @@ export default function Index(){
                         </section>
                         <section className="main-table container-column w-full">
                             <div className="title-next container space-between al-center">
-                                <h2>Próximos agendamentos</h2>
+                                <h2>Próximos agendamentos:</h2>
                                 <div className='pesquisa-box'>
                                     <input className="main-button common-button" placeholder="Pesquisar"  value={filtro} onChange={e => setFiltro(e.target.value)} />
                                     <button className='pesquisa'  onClick={filtrar}><img src={lupa} /></button>

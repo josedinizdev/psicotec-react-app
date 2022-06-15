@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 
 import logo from '../../images/logo.png';
 import st_sideimage from '../../images/main-1st-sideimage.jpg';
-import fourth_sideimage from '../../images/main-4th-sideimage.webp';
+import fourth_sideimage from '../../images/novaMulher.svg';
 
 export default function Index(){
     return(
@@ -20,7 +20,7 @@ export default function Index(){
                 <title>Página Inicial | PsicoTEC</title>
             </Helmet>
             <header>
-                <section className="container w-full max-width-visibility space-between">
+                <section className="container imgMulher  max-width-visibility space-between">
                     <div className="header-title container zi-2 animacao-chegando">
                         <h1>
                             <span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span> Sempre em busca do seu melhor
@@ -55,9 +55,9 @@ export default function Index(){
                             responsável pelo entendimento do comportamento
                             das pessoas, pela resolução de problemas, 
                             pelo controle emocional e é um meio importante 
-                            para buscar melhorar a vida, todavia, fazer com 
-                            que uma consulta com um psicólogo seja importante 
-                            na vida das pessoas
+                            para buscar melhorar a vida, desse modo, é fundamental
+                            fazer com que uma consulta com um psicólogo seja importante 
+                            na vida das pessoas.
                         </p>
                         <div className="container w-full">
                             <a href='#avalie'><button className="common-button animacao-botao-espacamento">Entre em contato</button></a>
@@ -115,7 +115,7 @@ export default function Index(){
                         </div>
                     </div>
                 </section>
-                <section className="main-history container max-width-visibility space-between">
+                <section className="main-history container w-fullmax-width-visibility space-between">
                     <div className="container">
                         <img src={fourth_sideimage} alt="" />                  
                     </div>
@@ -144,8 +144,8 @@ export default function Index(){
                         <div>
                             <h2 >Avalie o site</h2>
                             <form action="">
-                                <input className="common-button df-button-input" type="text" placeholder="Digite aqui seu nome" />
-                                <textarea className="common-button df-button-input" placeholder="Digite aqui sua opinião sobre o site"></textarea>
+                                <input className="common-button df-button-input" type="text" placeholder="Digite aqui seu nome:" />
+                                <textarea className="common-button df-button-input" placeholder="Digite aqui sua opinião sobre o site:"></textarea>
                             </form>
                             <div className="w-full">
                                 <button className="common-button animacao-botao-espacamento">Enviar Avaliação</button>
@@ -162,7 +162,7 @@ export default function Index(){
                             <p>
                                 Somos uma empresa com mais de 20 anos na área da psicologia, responsável pelo atendimento de pessoas
                                 das mais diversas idades, com objetivo de proporcionar um atendimento excepcional, visando a sintonia
-                                entre cliente e psicólogo para uma consulta agradável
+                                entre cliente e psicólogo para uma consulta agradável.
                             </p>
                         </div>
                     </div>
@@ -170,7 +170,7 @@ export default function Index(){
                 <div className="pd-2-4 w-full container-column al-center">
                     <section className="conf-and-partners container max-width-visibility w-full space-between">
                         <div>
-                            <h2>Confiabilidiade</h2>
+                            <h2>Confiabilidade</h2>
                             <p>
                                 Na Psicotec, proporcionamos um ambiente seguro, 
                                 confortável e único para que o seu atendimento 

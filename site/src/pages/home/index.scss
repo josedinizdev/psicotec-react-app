@@ -133,8 +133,10 @@
     }
 
     .main-importance-of img, .main-history img{
-        width: 640px;
+        width: 44rem;
         height: auto;
+        margin-top: -9rem;
+
     }
     
     .main-importance-of, .main-services > div, 
@@ -257,7 +259,7 @@
     }
     
     .main-history{
-        padding: 10rem 0 10rem 0;
+        padding: 10rem 0 4rem 0;
     }
     
     .main-contacts-and-form{
@@ -316,6 +318,7 @@
     
     .who-are-we p{
         color: #fff;
+        margin-top: 1rem;
     }
     
     .who-are-we div:nth-child(2){
@@ -368,7 +371,7 @@
     
     @media (max-width: 1040px){
         .main-importance-of img, .main-history img{
-            width: 30rem;
+            width: 40rem;
         }
     }
     
@@ -554,4 +557,9 @@
             height: 14rem;
         }
     }
+    .imgMulher {
+        width: 150%;
+        height: 150%;
+    }
 }
+
