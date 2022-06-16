@@ -364,7 +364,9 @@ export default function Index(){
                     <nav>
                         <ul>
                              <li className='animacao-1'><Link to="/">Página Inicial</Link></li> 
+                             <li className='animacao-1'><Link className='animacao-1' to='/admin'>Próximos Agendamentos</Link></li>
                              <li className='animacao-1'><Link to="/history">Histórico de agendamentos</Link></li> 
+                             
                         </ul>
                     </nav>
                         <Link to="/" onClick={sairClick}>Desconectar </Link>
