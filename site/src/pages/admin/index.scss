@@ -14,6 +14,15 @@
         position: absolute;
         
     }
+    ::placeholder{
+        color: #fff;
+        text-align: center;
+        cursor: text !important;
+    }
+    
+    .placeholder{
+        cursor: text;
+    }
 
     input, textarea{
         padding: 0.5rem;

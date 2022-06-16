@@ -28,7 +28,7 @@ export default function Index(){
                     </div>
                     <div className="container-column header-side-ll space-between">
                         <div className="header-login container zi-2 space-between al-center animacao-chegando">
-                            <Link to='/login'>login</Link>       
+                            <Link to='/login'>Login</Link>       
                         </div>
                         <div className="logo-svg container zi-2 animacao-chegando">
                             <Link className="logo-link " to="/">
@@ -117,7 +117,7 @@ export default function Index(){
                 </section>
                 <section className="main-history container w-fullmax-width-visibility space-between">
                     <div className="container">
-                        <img src={fourth_sideimage} alt="" />                  
+                        <img className="history-img"src={fourth_sideimage} alt="" />                  
                     </div>
                     <div className="container-column">
                         <h2 className="ptc-orange">

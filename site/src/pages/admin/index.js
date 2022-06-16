@@ -316,6 +316,9 @@ export default function Index(){
     async function carregarTodasConsultas(){
         const resp = await consultarProximos();
         setConsulta(resp); 
+  
+        if(consultarProximos === 0)
+        <p>Não há consultas para hoje.</p>
     }
 
     useEffect(() => {
@@ -439,7 +442,7 @@ export default function Index(){
                             <div className="title-next container space-between al-center">
                                 <h2>Próximos agendamentos:</h2>
                                 <div className='pesquisa-box'>
-                                    <input className="main-button common-button" placeholder="Pesquisar"  value={filtro} onChange={e => setFiltro(e.target.value)} />
+                                    <input className="main-button common-button placeholder" placeholder="Pesquisar por nome"  value={filtro} onChange={e => setFiltro(e.target.value)} />
                                     <button className='pesquisa'  onClick={filtrar}><img src={lupa} /></button>
                                 </div>
                             </div>

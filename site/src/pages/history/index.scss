@@ -106,7 +106,17 @@
         flex-direction: column;
         align-items: center;
     }
+
+    ::placeholder{
+        color: #fff;
+        text-align: center;
+        cursor: text !important;
+    }
     
+    .placeholder{
+        cursor: text;
+    }
+   
     /* aside */ 
     
     aside{

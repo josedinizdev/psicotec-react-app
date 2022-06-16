@@ -58,8 +58,19 @@ export default function Index(){
                 toast('Cadastro não foi feito')
             else
                 toast('Agendamento criado')
+
+            if (filtro === '')
+            carregarTodasConsultas();
+            else
+                filtrar();
+            
+                if (filtro === '')
+            carregarParaHoje();
+            else
+                filtrar();
         } catch(err){
-            toast(err.message)
+          
+            toast(err.response.data.erro)
         }
     }
 
@@ -71,15 +82,23 @@ export default function Index(){
                 toast('Modificação não foi feita')
             else
                 toast('Agendamento editado')
+                if (filtro === '')
+            carregarTodasConsultas();
+            else
+                filtrar();
+                if (filtro === '')
+            carregarParaHoje();
+            else
+                filtrar();
         } catch(err){
-            toast(err.message)
+            toast(err.response.data.erro)
         }
     }
     
     async function consultaRemover(id, nome){
         confirmAlert({
         title: 'Remover Consulta',
-        message: `Deseja remover a consulta ${nome}`,
+        message: `Deseja remover a consulta do paciente: ${nome} ? `,
         buttons: [
             {
               label: 'Sim',  
@@ -114,16 +133,27 @@ export default function Index(){
         const resp = await buscarConsultasPorNome(filtro)
         setConsulta(resp);
     }
+  
+    async function carregarParaHoje(){
+        let resp = await listarTodasConsultas();
+        if(resp === [])
+            resp = {nenhum: true}
+        setConsulta(resp); 
+    }
+
+    useEffect(() => {
+        carregarParaHoje();
+    }, [])
 
     async function getEdit(id){
         const resp = await buscarPorId(id)
         setNPac(resp.nome)
-        setNDt(resp.dtconc)
-        setNMae(resp.mae)
         setNNasc(resp.nasc)
-        setNPai(resp.pai)
-        setNSexo(resp.genero)
         setNHr(resp.hr)
+        setNSexo(resp.genero)
+        setNDt(resp.dtconc)
+        setNPai(resp.pai)
+        setNMae(resp.mae)   
         setNDetal(resp.descricao)
         setNConc(resp.conc)
     }
@@ -144,7 +174,7 @@ export default function Index(){
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
-                                <input type='date' value={nDt} onChange={e => setNDt(e.target.value)}/>
+                                <input  value={nDt} onChange={e => setNDt(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
@@ -154,7 +184,7 @@ export default function Index(){
                             </div>
                             <div className="container-column">
                                 <label>Data de nascimento*</label>
-                                <input type='date' value={nNasc} onChange={e => setNNasc(e.target.value)}/>
+                                <input  value={nNasc} onChange={e => setNNasc(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
@@ -207,7 +237,7 @@ export default function Index(){
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
-                                <input  value={cDt} onChange={e => setCDt(e.target.value)}/>
+                                <input type='date' value={cDt} onChange={e => setCDt(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
@@ -217,7 +247,7 @@ export default function Index(){
                             </div>
                             <div className="container-column">
                                 <label>Data de nascimento*</label>
-                                <input  value={cNasc} onChange={e => setCNasc(e.target.value)}/>
+                                <input type='date' value={cNasc} onChange={e => setCNasc(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
@@ -285,6 +315,7 @@ export default function Index(){
 
     return(
         <div className='history-page'>
+            <ToastContainer/>
             <Helmet>
                 <meta charset="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -318,7 +349,7 @@ export default function Index(){
                             <div className="title-next container space-between al-center">
                                 <h2 >Histórico de Agendamentos</h2>
                                 <div className='pesquisa-box'>
-                                    <input className="main-button common-button" placeholder="Pesquisar nome/data"  value={filtro} onChange={e => setFiltro(e.target.value)} />
+                                    <input className="main-button common-button placeholder" placeholder="Pesquisar por nome"  value={filtro} onChange={e => setFiltro(e.target.value)} />
                                     <button className='pesquisa'  onClick={filtrar}><img src={lupa} /></button>
                                 </div>
                             </div>
@@ -369,7 +400,7 @@ export default function Index(){
                                 </table>
                             </div>
                             <div className="container w-full jc-end">
-                                <button className="common-button main-button">+ Adicionar novo</button>
+                                <button  onClick={togglePopUp} className="common-button main-button">+ Adicionar novo</button>
                             </div>
                         </section>
                     </main>
