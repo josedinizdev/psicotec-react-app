@@ -172,7 +172,7 @@ export default function Index(){
                         <div>
                             <h2>Confiabilidade</h2>
                             <p>
-                                Na Psicotec, proporcionamos um ambiente seguro, 
+                                Na PsicoTEC, proporcionamos um ambiente seguro, 
                                 confortável e único para que o seu atendimento 
                                 seja excepcional
                             </p>

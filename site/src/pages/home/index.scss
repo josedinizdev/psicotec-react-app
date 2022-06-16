@@ -17,19 +17,7 @@
 }
 
 
-@keyframes espacamento {
-    from {
-        width: fit-content;
-        height: fit-content;
-        padding: 1.2rem 1.4rem;
-    }
-    to {
-        width: fit-content;
-        height: fit-content;
-        padding: 1.2rem 1.5rem;
-        letter-spacing: 0.1rem;
-    }
-}
+
 
 .animacao-chegando {
     animation: left;
@@ -43,11 +31,7 @@
     animation-fill-mode: forwards;
 }
 
-.animacao-botao-espacamento:hover {
-    animation: espacamento;
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
-}
+
 
 .home-page{
     h1, h2, h3, h4, h5, h6, label{
