@@ -3,6 +3,7 @@ import '../../common/common.scss'
 import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet'
 
+
 import logo from '../../images/logo.png';
 import st_sideimage from '../../images/main-1st-sideimage.jpg';
 import fourth_sideimage from '../../images/novaMulher.svg';

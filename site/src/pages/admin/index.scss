@@ -33,6 +33,8 @@
         top: 0;
     }
 
+
+
     .overlay{
         position: fixed;
         top: 0;
@@ -122,8 +124,11 @@
     a, li   {
         font-family: 'josefinsans-regular';
         font-size: 1.2rem;
-        margin-top: 1rem;
+        
+        
+    
     }
+
     
     td{
         font-family: 'josefinsans-regular';
@@ -137,6 +142,8 @@
         flex-direction: column;
         align-items: center;
     }
+
+    
     
     /* aside */ 
     
@@ -161,10 +168,11 @@
     
     aside nav ul{
         margin-bottom: 4rem;
+        
     }
     
     aside nav ul li:before{
-        content: '\2022';
+        
         margin: 0 6px;
         color: #fff;
     }
@@ -230,7 +238,13 @@
         background-color: #9F99DC;
         color: #fff;   
     }
-    
+    .btn-admin {
+     width: 1.5rem;
+     margin: -0.1rem 0.4rem -0.2rem 0;
+    }
+    .btn-exit{
+        margin-top: 0.9rem;
+    }
     .title-next{
         margin-bottom: 1.2rem;
     }
@@ -259,7 +273,7 @@
     .next-before div{
         width: 13rem;
     }
-
+    
     .usuarioLetter{
         font-size: 3rem;
         background-color: #fff;
@@ -335,6 +349,7 @@
 
         li{
             font-size: 0.9rem;
+            
         }
     }
 }

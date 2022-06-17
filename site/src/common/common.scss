@@ -115,6 +115,10 @@ main{
     height: 100%;
 }
 
+.top-margin {
+    margin-top: 1rem;
+}
+
 .space-between{
     justify-content: space-between;
 }
@@ -183,3 +187,4 @@ main{
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
 }
+

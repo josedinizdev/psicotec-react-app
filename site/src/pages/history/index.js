@@ -11,6 +11,10 @@ import lupa from '../../images/lupa.png'
 import { abreviar } from '../../services/services.js'
 import { listarTodasConsultas, buscarPorId, buscarConsultasPorNome, cadastrar, editar} from '../../api/consultarApi.js'
 import { removerConsulta } from '../../api/alteracoesAPI.js'
+import iconhome from '../../images/home.svg';
+import iconhistory from '../../images/history.svg'
+import iconexit from '../../images/exit.svg'
+import iconprox from '../../images/iconprox.svg'
 
 
 import logo from '../../images/logo.png';   
@@ -330,13 +334,13 @@ export default function Index(){
                     <h2>Área do administrador</h2>
                     <nav>
                         <ul>
-                            <li className='animacao-1'><Link className='animacao-1' to='/'>Página Inicial</Link></li>
-                            <li className='animacao-1'><Link className='animacao-1' to='/admin'>Próximos Agendamentos</Link></li>
-                            <li className='animacao-1'><Link to="/history">Histórico de agendamentos</Link></li> 
+                        <li className='top-margin'>  <Link to="/">        <img className='btn-history'src={iconhome} />Página Inicial</Link></li> 
+                        <li className='top-margin'>  <Link  to='/admin'>  <img className='btn-history'src={iconprox} />Próximos Agendamentos</Link></li>
+                        <li className='top-margin'>  <Link to="/history"> <img className='btn-history'src={iconhistory} />Histórico de agendamentos</Link></li>
 
                         </ul>
                     </nav>
-                        <Link to='/login' onClick={sairClick}>Desconectar</Link>
+                    <Link to="/" onClick={sairClick}>  <img className='btn-history 'src={iconexit} /> Desconectar </Link>
                     <Link to='/admin'>
                         <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="0%" x2="100%" y2="0%" stroke="#979797"/>
@@ -362,7 +366,7 @@ export default function Index(){
                                             <tr>
                                             <td>{item.paciente}</td>
                                             <div>
-                                                <td>
+                                                   <td>
                                                 <svg className='pointer' onClick={_ => {
                                                             setNEdit(item.id);
                                                             getEdit(item.id);
@@ -385,7 +389,7 @@ export default function Index(){
                                                             <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
                                                             <path d="M1 2.98628C1.26848 3.27906 1.5449 3.5666 1.78963 3.88327C1.79498 3.89019 1.87144 4.05555 1.90854 3.98051C1.98928 3.81719 2.04376 3.62656 2.1128 3.45827C2.28978 3.02691 2.47915 2.59831 2.70935 2.19636C2.93762 1.79777 3.21334 1.41041 3.59248 1.16716C3.71291 1.08989 3.85527 1 4 1" stroke="#00FF19" stroke-linecap="round"/>
-                                                            </svg>                                                                                                       
+                                                            </svg>                                                                                                      
                                                         )}
                                                         <svg className='pointer' onClick={() => consultaRemover(item.id, item.paciente)} width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
@@ -402,7 +406,7 @@ export default function Index(){
                                 </table>
                             </div>
                             <div className="container w-full jc-end">
-                                <button  onClick={togglePopUp} className="common-button main-button">+ Adicionar novo</button>
+                                <button  onClick={togglePopUp} className="common-button main-button animacao-botao-espacamento">+ Adicionar novo</button>
                             </div>
                         </section>
                     </main>

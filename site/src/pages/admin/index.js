@@ -6,14 +6,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import storage from 'local-storage'
 import lupa from '../../images/lupa.png'
 import { confirmAlert } from 'react-confirm-alert'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'  
 
 import { abreviar } from '../../services/services.js'
 import { buscarPorId, consultarProximos, buscarPresente, buscarPorNomeProximos, buscarPendentes, cadastrar, editar} from '../../api/consultarApi.js'
 import { removerConsulta } from '../../api/alteracoesAPI.js'
-import logo from '../../images/logo.png';
-import profile_pic from '../../images/profile-picture.jfif';
-import savebtn from '../../images/savebtn.svg'
+import logo from '../../images/logo.png';   
+import iconhome from '../../images/home.svg';
+import iconhistory from '../../images/history.svg'
+import iconexit from '../../images/exit.svg'
+import iconprox from '../../images/iconprox.svg'
 
 export default function Index(){
     const navigate = useNavigate();
@@ -363,13 +365,16 @@ export default function Index(){
                     <h2>Área do administrador</h2>
                     <nav>
                         <ul>
-                             <li className='animacao-1'><Link to="/">Página Inicial</Link></li> 
-                             <li className='animacao-1'><Link className='animacao-1' to='/admin'>Próximos Agendamentos</Link></li>
-                             <li className='animacao-1'><Link to="/history">Histórico de agendamentos</Link></li> 
+                           
+                             <li className='top-margin'>  <Link to="/">        <img className='btn-admin'src={iconhome} />Página Inicial</Link></li> 
+                             <li className='top-margin'>  <Link  to='/admin'>  <img className='btn-admin'src={iconprox} />Próximos Agendamentos</Link></li>
+                             <li className='top-margin'>  <Link to="/history"> <img className='btn-admin'src={iconhistory} />Histórico de agendamentos</Link></li> 
                              
+
                         </ul>
+                       
                     </nav>
-                        <Link to="/" onClick={sairClick}>Desconectar </Link>
+                        <Link to="/" onClick={sairClick}>  <img className='btn-admin btn-exit'src={iconexit} /> Desconectar </Link>
                     
                     <Link to="/history">
                         <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">

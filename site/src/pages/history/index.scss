@@ -146,10 +146,16 @@
     }
     
     aside nav ul li:before{
-        content: '\2022';
+
         margin: 0 6px;
         color: #fff;
     }
+
+    .btn-history{
+        width: 1.5rem;
+        margin: -0.1rem 0.4rem -0.2rem 0;
+    }
+   
     
     /* main */
     .title-next > div > button{
