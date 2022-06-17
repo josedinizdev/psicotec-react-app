@@ -69,13 +69,13 @@ export default function Index(){
                 <title>Login | PsicoTEC</title>
             </Helmet>
             <main>
-                <div className="login-card zi-2 container-column space-between">
-                    <div className="logo-svg">
+                <div className="login-card zi-2 container-column space-between fade">
+                    <div className="logo-svg movimentacao">
                         <Link className="logo-link" to='/'>
                             <img src={logo} alt="" />
                         </Link>
                     </div>
-                    <form className="container-column wh-full" action="">
+                    <form className="container-column wh-full movimentacao" action="">
                         <div className="container-column w-full">
                             <label for="">Usuário</label>
                             <input className="common-button w-full" type="text" placeholder="ex: rafael9823" value={logar} onChange={e => setLogar(e.target.value)}/>
@@ -86,7 +86,7 @@ export default function Index(){
                         </div>
                     </form>
                     <div className="container-column al-center w-full">
-                        <button  className="common-button btn-login " onClick={entrarClick} disabled={carregando} >Entrar</button>
+                        <button  className="common-button btn-login movimentacao" onClick={entrarClick} disabled={carregando} >Entrar</button>
                     </div>
                     <div className='login-invalido container-column al-center w-full'>
                        {erro}

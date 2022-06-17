@@ -4,8 +4,8 @@
 */
 
 @keyframes aumentar {
-    from { font-size: 0.9rem;}
-    to   { font-size: 1.3em;}
+    from { font-size: 1.2rem;}
+    to   { font-size: 1.27rem;}
 }
 
 @keyframes espacamento {
@@ -177,14 +177,15 @@ main{
     opacity: .4;
 }
 
-.animacao-1:hover:before{
-    animation: aumentar 0.2s;
+    // ANIMAÇÕES //
+
+.animacao-1:hover{
+    animation: aumentar 0.1s;
     animation-fill-mode: forwards;
     }
     
 .animacao-botao-espacamento:hover {
-    animation: espacamento;
-    animation-duration: 0.4s;
+    animation: espacamento 0.3s;
     animation-fill-mode: forwards;
 }
 

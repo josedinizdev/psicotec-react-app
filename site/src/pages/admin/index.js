@@ -366,15 +366,15 @@ export default function Index(){
                     <nav>
                         <ul>
                            
-                             <li className='top-margin'>  <Link to="/">        <img className='btn-admin'src={iconhome} />Página Inicial</Link></li> 
-                             <li className='top-margin'>  <Link  to='/admin'>  <img className='btn-admin'src={iconprox} />Próximos Agendamentos</Link></li>
-                             <li className='top-margin'>  <Link to="/history"> <img className='btn-admin'src={iconhistory} />Histórico de agendamentos</Link></li> 
+                             <li className='top-margin'>  <Link className='animacao-1' to="/">        <img className='btn-admin'src={iconhome} />Página Inicial</Link></li> 
+                             <li className='top-margin'>  <Link className='animacao-1' to='/admin'>   <img className='btn-admin'src={iconprox} />Próximos Agendamentos</Link></li>
+                             <li className='top-margin'>  <Link className='animacao-1' to="/history"> <img className='btn-admin'src={iconhistory} />Histórico de agendamentos</Link></li> 
                              
 
                         </ul>
                        
                     </nav>
-                        <Link to="/" onClick={sairClick}>  <img className='btn-admin btn-exit'src={iconexit} /> Desconectar </Link>
+                        <Link className='animacao-1' to="/" onClick={sairClick}>  <img className='btn-admin btn-exit'src={iconexit} /> Desconectar </Link>
                     
                     <Link to="/history">
                         <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
