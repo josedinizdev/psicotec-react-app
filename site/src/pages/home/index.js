@@ -71,43 +71,43 @@ export default function Index(){
                             <h2>Serviços</h2>
                         </div>
                         <div className="main-services-cards w-full container wrap space-between">
-                            <div>
+                            <div className='card-animation'>
                                 <div className="ms-st-card"></div>
                                 <div>
                                     <h3>Cognitivo-Comportamental</h3>
                                 </div>
                             </div>
-                            <div>
+                            <div className='card-animation'>
                                 <div className="ms-nd-card"></div>
                                     <div>
                                         <h3>Terapia de Casal</h3>
                                     </div>
                             </div>
-                            <div>
+                            <div className='card-animation'>
                                 <div className="ms-rd-card"></div>
                                 <div>
                                     <h3>Depressão e Ansiedade</h3>
                                 </div>
                             </div>
-                            <div>
+                            <div className='card-animation'>
                                 <div className="ms-4th-card"></div>
                                 <div>
                                     <h3>Terapia Individual</h3>
                                 </div>
                             </div>
-                            <div>
+                            <div className='card-animation'>
                                 <div className="ms-5th-card"></div>
                                 <div>
                                     <h3>Estresse e Medo</h3>
                                 </div>
                             </div>
-                            <div>
+                            <div className='card-animation'>
                                 <div className="ms-6th-card"></div>
                                 <div>
                                     <h3>Fobia e Insegurança</h3>
                                 </div>
                             </div>
-                            <div>
+                            <div className='card-animation'>
                                 <div className="ms-7th-card"></div>
                                 <div>
                                     <h3>Terapia Infantil</h3>

@@ -92,8 +92,7 @@ export default function Index(){
                 filtrar();
                 if (filtro === '')
             carregarParaHoje();
-            else
-                filtrar();
+           
         } catch(err){
             toast(err.response.data.erro)
         }
@@ -237,47 +236,47 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do paciente*</label>
-                                <input value={cPac} onChange={e => setCPac(e.target.value)}/>
+                                <input  onChange={e => setCPac(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
-                                <input type='date' value={cDt} onChange={e => setCDt(e.target.value)}/>
+                                <input type='date'  onChange={e => setCDt(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome da mãe</label>
-                                <input value={cMae} onChange={e => setCMae(e.target.value)}/>
+                                <input  onChange={e => setCMae(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Data de nascimento*</label>
-                                <input type='date' value={cNasc} onChange={e => setCNasc(e.target.value)}/>
+                                <input type='date'  onChange={e => setCNasc(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do pai</label>
-                                <input value={cPai} onChange={e => setCPai(e.target.value)}/>
+                                <input onChange={e => setCPai(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Sexo*</label>
-                                <input value={cSexo} onChange={e => setCSexo(e.target.value)}/>
+                                <input  onChange={e => setCSexo(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Horário*</label>
-                                <input type='time' value={cHr} onChange={e => setCHr(e.target.value)}/>
+                                <input type='time'  onChange={e => setCHr(e.target.value)}/>
                             </div>
                         </div>
                         <div className="container w-full">
                             <div className="container-column w-full">
                                 <label>Detalhes do paciente</label>
-                                <textarea value={cDetal} onChange={e => setCDetal(e.target.value)}></textarea>
+                                <textarea onChange={e => setCDetal(e.target.value)}></textarea>
                             </div>
                         </div>
                         <div className="container w-full">
                             <div className="container-column w-full">
                                 <label>Conclusão do atendimento</label>
-                                <textarea value={cConc} onChange={e => setCConc(e.target.value)}></textarea>
+                                <textarea  onChange={e => setCConc(e.target.value)}></textarea>
                             </div>
                         </div>
                     </form>
@@ -351,9 +350,17 @@ export default function Index(){
                 </aside>
                 <div className="container-column w-full">
                     <main className="w-full container-column">
+                    <header className="container w-full">
+                        
+             
+                        <h1>Histórico de Agendamentos</h1>
+                    </header>
                         <section className="main-table container-column w-full">
+                      
+
                             <div className="title-next container space-between al-center">
-                                <h2 >Histórico de Agendamentos</h2>
+                                
+                                <h2 >Pesquise por consultas antigas:</h2>
                                 <div className='pesquisa-box'>
                                     <input className="main-button common-button placeholder" placeholder="Pesquisar por nome"  value={filtro} onChange={e => setFiltro(e.target.value)} />
                                     <button className='pesquisa'  onClick={filtrar}><img src={lupa} /></button>

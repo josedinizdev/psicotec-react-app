@@ -114,13 +114,32 @@
     .placeholder{
         cursor: text;
     }
+    /* header */
    
+    header{
+        background-color: #65609C;  
+        justify-content: flex-start;
+        padding: 0.8rem 1rem;
+        align-items: center;
+    }
+    
+    header img{
+        width: 7rem;
+        border-radius: 4rem;
+        border: solid 6px #fff;
+    }
+    
+    header h1{
+        margin-top: 0.4rem;
+        margin-left: 4.8rem;
+        color: #fff;
+    }
     /* aside */ 
     
     aside{
         background-color: #65609C;
         overflow: hidden;
-        height: 150vh;
+        height: 140vh;
         width: 22rem;
         padding: 1rem 0 0 1rem;
         overflow: hidden;
@@ -154,6 +173,7 @@
     }
    
     
+  
     /* main */
     .title-next > div > button{
         border: none;
@@ -216,7 +236,7 @@
     
     tr td svg{
         height: 1rem;
-        width: 1rem;
+        width: 1.2rem;
     }
     
     .next-before div{

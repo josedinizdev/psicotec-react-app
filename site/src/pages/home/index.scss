@@ -1,3 +1,5 @@
+//  ANIMAÇÕES //
+
 @keyframes left {
     from {
         padding: -2rem 0 0 -3rem;
@@ -17,8 +19,6 @@
 }
 
 
-
-
 .animacao-chegando {
     animation: left;
     animation-duration: 1s;
@@ -31,8 +31,17 @@
     animation-fill-mode: forwards;
 }
 
+.card-animation {
+    transition: 0.4s;
+}
 
+.card-animation:hover {
+    transform: scale3d(1.1, 1.1, 1);
+    box-shadow: 0.5rem 0.5rem 6px #888888;
 
+    // box-shadow: 0.4rem 0.4rem rgba(0, 0, 0, 0.04);
+}
+ 
 .home-page{
     h1, h2, h3, h4, h5, h6, label{
         font-family: 'josefinsans-semibold' !important;
@@ -548,5 +557,6 @@
         width: 150%;
         height: 150%;
     }
+
 }
 

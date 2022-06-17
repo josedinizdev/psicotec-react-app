@@ -1,3 +1,13 @@
+// ANIMAÇÕES //
+
+.hv-btn {
+    transition: 0.2;
+}
+
+.hv-btn:hover {
+    transform: scale3d(1.1, 1.1, 1);
+}
+
 .admin-page{   
     header > div{
         position: relative;
@@ -270,7 +280,7 @@
 
     tr td svg{
         height: 1rem;
-        width: 1rem;
+        width: 1.2rem;
     }
 
     .next-before div{
@@ -307,6 +317,7 @@
         width: 2.5rem;
     }
 
+    
     @media (min-width: 1500px) {
         td{
             font-size: 1.4rem;

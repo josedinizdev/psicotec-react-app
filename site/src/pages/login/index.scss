@@ -110,12 +110,13 @@
         color: #de7373;
         font-weight: bold;
         font-family: 'josefinsans-semibold' !important;
+        margin-bottom: -1.5rem;
        
     }
 
     .btn-login{
-    padding: 1.2rem 2.3rem !important;
-    margin: 0.5rem 0rem !important;
+    padding: 1.1rem 2.3rem !important;
+    margin: 0.8rem 0rem !important;
     background-color: #ffaa05;
     color: #fff;
 }
@@ -126,8 +127,15 @@
         animation: fade 1s;
         animation-fill-mode: forwards;
     }
-    .movimentacao {
+    .movimentacao:nth-child(1) {
         animation: movimento 1s;
-        animation-fill-mode: forwards;
+        animation-fill-mode: backwards;
+        animation-delay: 0.3s;
     }
+    .movimentacao:nth-child(2) {
+        animation: movimento 1s;
+        animation-fill-mode: backwards;
+        animation-delay: 0.7s;
+    }
+
 }
