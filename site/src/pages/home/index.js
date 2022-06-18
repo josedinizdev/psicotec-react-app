@@ -1,5 +1,6 @@
 import './index.scss'
 import '../../common/common.scss'
+import './scroll.js'
 import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet'
 
@@ -28,11 +29,11 @@ export default function Index(){
                         </h1>
                     </div>
                     <div className="container-column header-side-ll space-between">
-                        <div className="header-login container zi-2 space-between al-center animacao-chegando">
+                        <div className="header-login container zi-2 space-between al-center animacao-chegando aumentar">
                             <Link to='/login'>Login</Link>       
                         </div>
                         <div className="logo-svg container zi-2 animacao-chegando">
-                            <Link className="logo-link " to="/">
+                            <Link className="logo-link" to="/">
                                 <img className='animacao-chegando-logo' src={logo} alt='PsicoTEC logo' />
                             </Link>
                         </div>
@@ -43,7 +44,7 @@ export default function Index(){
                 </section>
             </header>
             <main className="container-column">
-                <section className="main-importance-of container max-width-visibility space-between">
+                <section className="main-importance-of container max-width-visibility space-between" data-animation="left">
                     <div className="container">
                         <img src={st_sideimage} alt='' />
                     </div>
@@ -57,7 +58,7 @@ export default function Index(){
                             das pessoas, pela resolução de problemas, 
                             pelo controle emocional e é um meio importante 
                             para buscar melhorar a vida, desse modo, é fundamental
-                            fazer com que uma consulta com um psicólogo seja importante 
+                            fazer com que uma consulta com um psicólogo seja importante         
                             na vida das pessoas.
                         </p>
                         <div className="container w-full">
@@ -66,7 +67,7 @@ export default function Index(){
                     </div>
                 </section>
                 <section className="main-services w-full container">
-                    <div className="max-width-visibility w-full container-column">
+                    <div className="max-width-visibility w-full container-column" data-animation="left">
                         <div className="w-full">
                             <h2>Serviços</h2>
                         </div>
@@ -117,10 +118,10 @@ export default function Index(){
                     </div>
                 </section>
                 <section className="main-history container w-fullmax-width-visibility space-between">
-                    <div className="container">
-                        <img className="history-img"src={fourth_sideimage} alt="" />                  
+                    <div className="container" data-animation="left">
+                        <img className="history-img" src={fourth_sideimage} alt="" />                  
                     </div>
-                    <div className="container-column">
+                    <div className="container-column" data-animation="left">
                         <h2 className="ptc-orange">
                             História da <span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span>
                         </h2>
@@ -134,12 +135,12 @@ export default function Index(){
                         </p>
                     </div>
                 </section >
-                <section className="main-contacts-and-form container-column al-center w-full">
+                <section className="main-contacts-and-form container-column al-center w-full" data-animation="left">
                     <div  id="avalie" className="max-width-visibility w-full zi-2 container space-between">
                         <div>
                             <h2>Contatos</h2>
                             <p>(+55) 11 98806 7221</p>
-                            <p>(+55) 11 5687 8876</p>
+                            <p>(55) 11 5687 8876</p>
                             <p>adminJose098_@psicotec.org.br</p>
                         </div>
                         <div>
@@ -156,7 +157,7 @@ export default function Index(){
                     <div className="main-caf-background-color zi-1 wh-full"></div>
                 </section>
                 <section className="who-are-we pd-2-4 w-full container-column al-center">
-                    <div className="max-width-visibility space-between container wh-full">
+                    <div className="max-width-visibility space-between container wh-full" data-animation="left">
                         <div className="waw-image-6th"></div>
                         <div className="container-column">
                             <h2>Quem somos?</h2>
@@ -169,7 +170,7 @@ export default function Index(){
                     </div>
                 </section>
                 <div className="pd-2-4 w-full container-column al-center">
-                    <section className="conf-and-partners container max-width-visibility w-full space-between">
+                    <section className="conf-and-partners container max-width-visibility w-full space-between" data-animation="left">
                         <div>
                             <h2>Confiabilidade</h2>
                             <p>
@@ -194,7 +195,7 @@ export default function Index(){
                 </div>
             </main>
             <footer className="container-column al-center w-full">
-                <div className="container w-full h-full max-width-visibility space-between">
+                <div className="container w-full h-full max-width-visibility space-between" data-animation="left">
                     <div className="container h-full al-center">
                         <h2><a href='#home'><span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span></a> sempre em busca do seu melhor</h2>
                     </div>

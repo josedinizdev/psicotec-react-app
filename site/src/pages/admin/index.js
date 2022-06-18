@@ -132,6 +132,7 @@ export default function Index(){
 
     const togglePopUp = () => {
         setPopUp(!popUp)
+        
     }
     
     const toggleEdtPopUp = () => {
@@ -241,7 +242,7 @@ export default function Index(){
             <div className="wh-full container-column al-center jc-center">
                 <div className="popUp-box">
                     <div className="w-full container jc-end">
-                        <button className="close-popUp" type="button" onClick={togglePopUp}>x</button>
+                        <button className="close-popUp pointer" type="button" onClick={togglePopUp}>x</button>
                     </div>
                     <form className="container-column w-full">
                         <div className="container w-full space-between">
@@ -501,6 +502,7 @@ export default function Index(){
                             </div>
                             <div className="container w-full jc-end">
                                 <button onClick={togglePopUp} className="common-button main-button animacao-botao-espacamento" type="button">+ Adicionar novo</button>
+                                
                             </div>
                         </section>
                     </main>
