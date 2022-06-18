@@ -3,6 +3,14 @@ const api = axios.create({
     baseURL:'http://localhost:5000'
 })
 
+export async function enviarEmail(autor, opiniao) {
+    const resposta = await api.post('/enviarEmail', {
+        autor: autor,
+        opiniao: opiniao
+    })
+    return resposta.data
+}
+
 export async function listarTodasConsultas() {
     const resposta = await api.get('/consulta')
     return resposta.data;
@@ -36,7 +44,7 @@ export async function buscarPorId(id){
 
 export async function buscarPendentes(){
     const resposta = await api.get('/consulta/busca/pendentes')
-    return resposta
+    return resposta.data
 }
 
 export async function cadastrar(paciente, administrador, nascimento, hora, genero, consultar, pai, mae, descricao, conclusao){

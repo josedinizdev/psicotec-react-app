@@ -143,14 +143,9 @@ export async function consultarPendentes(){
              HR_HORA	      time,
              DS_CONCLUSAO   conclusao
         FROM tb_consulta
-       WHERE DT_CONSULTA < current_date();`
+       WHERE DT_CONSULTA < current_date()
+         AND DS_CONCLUSAO = "";`
   const [linhas] = await con.query(command) 
-  let pendentes = 0;
-  for(let item in linhas){
-      if(!item.conclusao)
-          pendentes++
-  }
-  console.log(pendentes)
-  return pendentes
+  return linhas.length;
 }
 

@@ -157,7 +157,7 @@ server.get('/consulta/busca/presente', async (req, resp) => {
 server.get('/consulta/busca/pendentes', async (req, resp) => {
     try{
         const resposta = await consultarPendentes();
-        resp.send(resposta);
+        resp.send({pendentes: resposta});
     } catch(err){
         console.log(err)
         resp.status(404).send({erro: err})

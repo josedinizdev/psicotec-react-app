@@ -1,10 +1,8 @@
 use infoapsicotec;
 
-
 -- Cadastro inicial -- -> para cadastrar um adm
 INSERT INTO TB_ADMINISTRADOR (NM_USUARIO, DS_SENHA, DS_LOGIN, DS_EMAIL, DT_NASCIMENTO)
        VALUES ('Junior da Silva', '1234', 'junior', 'junior123@gmail.com', '2000-01-01');
-
 
 -- Efetuar login -- -> Finalizado.
 
@@ -52,7 +50,7 @@ SELECT id_consulta    id,
   DS_GENERO			genero,
   DS_DESCRICAO	descricao,
   DS_CONCLUSAO	conclusao,
-  FROM tb_consulta
+  FROM tb_consulta;
 
   -- Consultar por nome presente -- Finalizado.
 
@@ -67,4 +65,11 @@ SELECT id_consulta    id,
   DS_DESCRICAO      descricao,
   DS_CONCLUSAO	    conclusao,
   FROM tb_consulta
-  WHERE nm_paciente like
+  WHERE nm_paciente like;
+
+  SELECT NM_PACIENTE		paciente,
+             DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       date,
+             HR_HORA	      time,
+             DS_CONCLUSAO   conclusao
+        FROM tb_consulta
+       WHERE DT_CONSULTA < current_date();

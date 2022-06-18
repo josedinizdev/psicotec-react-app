@@ -3,18 +3,30 @@ import '../../common/common.scss'
 import './scroll.js'
 import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet'
-
-
+import React, { useState } from 'react'
+import { enviarEmail } from '../../api/consultarApi.js'
 import logo from '../../images/logo.png';
 import st_sideimage from '../../images/main-1st-sideimage.jpg';
 import fourth_sideimage from '../../images/novaMulher.svg';
 
-export default function Index(){
-    return(
+export default function Index() {
+    const [autor, setAutor] = useState('');
+    const [opiniao, setOpiniao] = useState('')
+
+    function resetEmail() {
+        setAutor('')
+        setOpiniao('')
+    }
     
+    async function sendEmail() {
+        const resp = await enviarEmail(autor, opiniao);
+        resetEmail()
+        return resp
+    }
+
+    return(
         <div id='home' className='home-page'>
-            <Helmet>
-                
+            <Helmet>     
                 <meta charset="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -146,11 +158,11 @@ export default function Index(){
                         <div>
                             <h2 >Avalie o site</h2>
                             <form action="">
-                                <input className="common-button df-button-input" type="text" placeholder="Digite aqui seu nome:" />
-                                <textarea className="common-button df-button-input" placeholder="Digite aqui sua opinião sobre o site:"></textarea>
+                                <input value={autor} onChange={e => setAutor(e.target.value)} className="common-button df-button-input" type="text" placeholder="Digite aqui seu nome:" />
+                                <textarea value={opiniao} onChange={e => setOpiniao(e.target.value)} className="common-button df-button-input" placeholder="Digite aqui sua opinião sobre o site:"></textarea>
                             </form>
                             <div className="w-full">
-                                <button className="common-button animacao-botao-espacamento">Enviar Avaliação</button>
+                                <button onClick={sendEmail} className="common-button animacao-botao-espacamento">Enviar Avaliação</button>
                             </div>
                         </div>
                     </div>

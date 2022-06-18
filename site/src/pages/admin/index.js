@@ -341,8 +341,7 @@ export default function Index(){
 
     async function carregarPendentes(){
         let resp = await buscarPendentes();
-        setPendentes(resp)
-        
+        setPendentes(resp.pendentes)
     }
 
     useEffect(() => {
@@ -376,26 +375,20 @@ export default function Index(){
                        
                     </nav>
                         <Link className='animacao-1' to="/" onClick={sairClick}>  <img className='btn-admin btn-exit'src={iconexit} /> Desconectar </Link>
-                    
                     <Link to="/history">
                         <svg width="2.4rem" height="2.4rem" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="0%" x2="100%" y2="0%" stroke="#979797"/>
                             <line y1="50%" x2="100%" y2="50%" stroke="white"/>
                             <line y1="100%" x2="100%" y2="100%" stroke="#979797"/>
                         </svg> 
-                        
                     </Link>
                 </aside>
-                
                 <div className="container-column w-full">
-                    
                     <header className="container w-full">
                         <div> 
-                            
                             <div className='usuarioLetter' onClick={escolherImagem}>
                                 {!img &&(
-                                    <div>
-                                        
+                                    <div>          
                                         <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <line x1="6.5" x2="6.5" y2="11" stroke="#7B7B7B"/>
                                             <line x1="0.353553" y1="8.64645" x2="6.71751" y2="15.0104" stroke="#7B7B7B"/>
@@ -426,17 +419,12 @@ export default function Index(){
                             <div>
                                 <h2>Para hoje:</h2>
                                 <ul>
-                                    {paraHoje.map(item => {
-                                        if(item.nenhum === true)
-                                            return(
-                                                <li>Nenhum agendamento para hoje</li>
-                                            )
-                                        else
-                                            return(
-                                                <li>{abreviar(item.paciente)} - {item.time.substr(0, 5  )}</li>
-                                            )
-                                        
-                                    })}
+                                    {paraHoje.length === 0 && (
+                                        <li>Nenhum agendamento para hoje</li>
+                                    )}
+                                    {paraHoje.map(item => 
+                                        <li>{abreviar(item.paciente)} - {item.time.substr(0, 5  )}</li>   
+                                    )}
                                 </ul>
                             </div>
                             <div>
@@ -457,6 +445,9 @@ export default function Index(){
                             <div className="next-schedules-card container-column w-full">
                                 <table className="w-full">
                                     <tbody>
+                                        {consulta.length === 0 && (
+                                            <li>Nenhum agendamento próximo</li>
+                                        )}
                                          {consulta.map(item =>  
                                             <tr>
                                                 <td>{item.paciente}</td>

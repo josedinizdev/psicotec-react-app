@@ -12,7 +12,7 @@ export async function enviar(email){
     const command = `
         INSERT INTO tb_emails(nm_autor, ds_opiniao, dt_envio)
              VALUES (?, ?, ?)`
-    
+    email.data = new Date();
     const [lines] = await con.query(command, [email.autor, email.opiniao, email.data])
     email.id = lines.insertId;
 
