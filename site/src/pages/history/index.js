@@ -374,7 +374,7 @@ export default function Index(){
                                             <td>{item.paciente}</td>
                                             <div>
                                                    <td>
-                                                <svg className='pointer' onClick={_ => {
+                                                <svg className='pointer hv-btn' onClick={_ => {
                                                             setNEdit(item.id);
                                                             getEdit(item.id);
                                                             toggleEdtPopUp()
@@ -398,7 +398,7 @@ export default function Index(){
                                                             <path d="M1 2.98628C1.26848 3.27906 1.5449 3.5666 1.78963 3.88327C1.79498 3.89019 1.87144 4.05555 1.90854 3.98051C1.98928 3.81719 2.04376 3.62656 2.1128 3.45827C2.28978 3.02691 2.47915 2.59831 2.70935 2.19636C2.93762 1.79777 3.21334 1.41041 3.59248 1.16716C3.71291 1.08989 3.85527 1 4 1" stroke="#00FF19" stroke-linecap="round"/>
                                                             </svg>                                                                                                      
                                                         )}
-                                                        <svg className='pointer' onClick={() => consultaRemover(item.id, item.paciente)} width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <svg className='pointer hv-btn' onClick={() => consultaRemover(item.id, item.paciente)} width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <rect x="0.1" y="0.1" width="4.8" height="4.8" rx="1.4" stroke="black" stroke-width="0.2"/>
                                                             <line x1="0.353553" y1="0.646447" x2="4.35355" y2="4.64645" stroke="#FF0303"/>
                                                             <line x1="0.646447" y1="4.64645" x2="4.64645" y2="0.646447" stroke="#FF0303"/>

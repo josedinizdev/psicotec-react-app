@@ -56,7 +56,7 @@ export default function Index() {
                 </section>
             </header>
             <main className="container-column">
-                <section className="main-importance-of container max-width-visibility space-between" data-animation="left">
+                <section className="main-importance-of container max-width-visibility space-between" >
                     <div className="container">
                         <img src={st_sideimage} alt='' />
                     </div>
@@ -64,7 +64,7 @@ export default function Index() {
                         <h2 className="ptc-orange">
                             Importância da Psicologia na sua vida
                         </h2>
-                        <p>
+                        <p > 
                             A psicologia, por meio de estudos, é 
                             responsável pelo entendimento do comportamento
                             das pessoas, pela resolução de problemas, 
@@ -79,7 +79,7 @@ export default function Index() {
                     </div>
                 </section>
                 <section className="main-services w-full container">
-                    <div className="max-width-visibility w-full container-column" data-animation="left">
+                    <div className="max-width-visibility w-full container-column" >
                         <div className="w-full">
                             <h2>Serviços</h2>
                         </div>
@@ -130,10 +130,10 @@ export default function Index() {
                     </div>
                 </section>
                 <section className="main-history container w-fullmax-width-visibility space-between">
-                    <div className="container" data-animation="left">
+                    <div className="container" >
                         <img className="history-img" src={fourth_sideimage} alt="" />                  
                     </div>
-                    <div className="container-column" data-animation="left">
+                    <div className="container-column" >
                         <h2 className="ptc-orange">
                             História da <span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span>
                         </h2>
@@ -147,7 +147,7 @@ export default function Index() {
                         </p>
                     </div>
                 </section >
-                <section className="main-contacts-and-form container-column al-center w-full" data-animation="left">
+                <section className="main-contacts-and-form container-column al-center w-full" >
                     <div  id="avalie" className="max-width-visibility w-full zi-2 container space-between">
                         <div>
                             <h2>Contatos</h2>
@@ -169,7 +169,7 @@ export default function Index() {
                     <div className="main-caf-background-color zi-1 wh-full"></div>
                 </section>
                 <section className="who-are-we pd-2-4 w-full container-column al-center">
-                    <div className="max-width-visibility space-between container wh-full" data-animation="left">
+                    <div className="max-width-visibility space-between container wh-full" >
                         <div className="waw-image-6th"></div>
                         <div className="container-column">
                             <h2>Quem somos?</h2>
@@ -182,7 +182,7 @@ export default function Index() {
                     </div>
                 </section>
                 <div className="pd-2-4 w-full container-column al-center">
-                    <section className="conf-and-partners container max-width-visibility w-full space-between" data-animation="left">
+                    <section className="conf-and-partners container max-width-visibility w-full space-between" >
                         <div>
                             <h2>Confiabilidade</h2>
                             <p>
@@ -207,7 +207,7 @@ export default function Index() {
                 </div>
             </main>
             <footer className="container-column al-center w-full">
-                <div className="container w-full h-full max-width-visibility space-between" data-animation="left">
+                <div className="container w-full h-full max-width-visibility space-between" >
                     <div className="container h-full al-center">
                         <h2><a href='#home'><span className="ptc-orange">Psico</span><span className="ptc-blue">TEC</span></a> sempre em busca do seu melhor</h2>
                     </div>
