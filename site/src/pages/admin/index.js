@@ -3,7 +3,7 @@ import '../../common/common.scss'
 import React, { useEffect, useState } from "react"
 import Helmet from 'react-helmet'
 import { Link, useNavigate } from 'react-router-dom'
-import storage from 'local-storage'
+import storage, { set } from 'local-storage'
 import lupa from '../../images/lupa.png'
 import { confirmAlert } from 'react-confirm-alert'
 import { toast, ToastContainer } from 'react-toastify'  
@@ -11,6 +11,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { abreviar } from '../../services/services.js'
 import { buscarPorId, consultarProximos, buscarPresente, buscarPorNomeProximos, buscarPendentes, cadastrar, editar} from '../../api/consultarApi.js'
 import { removerConsulta } from '../../api/alteracoesAPI.js'
+import { consultarFoto, enviarPerfil } from '../../api/usuarioApi'
 import logo from '../../images/logo.png';   
 import iconhome from '../../images/home.svg';
 import iconhistory from '../../images/history.svg'
@@ -30,9 +31,6 @@ export default function Index(){
     const [pendentes, setPendentes] = useState(0);
 
     const [img, setImg] = useState()
-
-    // adicionar conclusao
-    const [addConc, setAddConc] = useState('')
 
     //criar
     const [cPac, setCPac] = useState('')
@@ -335,17 +333,20 @@ export default function Index(){
         setParaHoje(resp); 
     }
 
-    useEffect(() => {
-        carregarParaHoje();
-    }, [])
-
     async function carregarPendentes(){
         let resp = await buscarPendentes();
         setPendentes(resp.pendentes)
     }
 
+    async function carregarFoto() {
+        const resp = await consultarFoto(admId)
+        setImg(resp.perfil)
+    }
+
     useEffect(() => {
         carregarPendentes()
+        carregarFoto()
+        carregarParaHoje();
     }, [])
     
     return(
@@ -400,7 +401,10 @@ export default function Index(){
                                     <img className='imagem-perfil'src={mostrarImagem()} alt='' />
                                 )}
                                 
-                                <input type='file' id='imagemPerfil' onChange={e => setImg(e.target.files[0])}/> 
+                                <input type='file' id='imagemPerfil' onChange={e => {
+                                    setImg(e.target.files[0]);
+                                    enviarPerfil(admId, img);
+                                }}/> 
                             </div>
                             <div>
                                 <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" >

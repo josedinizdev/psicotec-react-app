@@ -43,3 +43,15 @@ export async function alterarImagem(imagem, id){
   const [resposta] = await con.query(comando, [imagem, id]);
   return resposta.affectedRows;
 }
+
+
+export async function pesquisarPerfil(id) {
+  const comando = `
+      SELECT img_perfil    perfil
+        FROM tb_usuario
+       WHERE id_usuario    = ?;
+  `;
+  
+  const [linhas] = await con.query(comando, [id]);
+  return linhas[0];
+}

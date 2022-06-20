@@ -13,27 +13,20 @@ export async function login(logar, senha){
     return r.data;
 } 
 
-export async function consultarFotoDePerfil(usuario){
+export async function consultarFoto(usuario){
     const resposta = await api.get(`/usuario/perfil?id=${usuario}`)
     return resposta.data
 }
 
-export async function enviarFotoDePerfil(id, imagem) {
-    const formData = new formData();
-    formData.append('capa', imagem);
+export async function enviarPerfil(id, imagem) {
+    const formData = new FormData();
+    formData.append('perfil', imagem);
 
-    const resposta = await api.put(`/`)
-}
+    const resposta = await api.put(`/usuario/${id}/perfil`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+    });
 
-
-export async function inserirImagemConsulta(id, imagem){
-        const formData = new FormData();
-        formData.append('perfil', imagem);
-
-        const resposta = await api.put(`/consulta/${id}/perfil`, formData, {
-            headers: {
-                "content-type": "multipart/form-data"
-            },
-        });
-        return resposta.status;
+    return resposta.status;
 }

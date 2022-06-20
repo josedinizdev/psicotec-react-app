@@ -43,8 +43,6 @@
         top: 0;
     }
 
-
-
     .overlay{
         position: fixed;
         top: 0;
@@ -337,7 +335,9 @@
         aside{
             width: 17.5rem;
         }
-    
+        button.pesquisa{
+            display: none;
+        }
         .container .w-full .jc-end{
             margin-top: 1.2rem;
             justify-content: center;
@@ -364,6 +364,15 @@
         li{
             font-size: 0.9rem;
             
+        }
+        button.pesquisa{
+            display: none;
+        }
+        a svg {
+            display: none;
+        }
+        .placeholder {
+            margin-left: 3rem;
         }
     }
 }

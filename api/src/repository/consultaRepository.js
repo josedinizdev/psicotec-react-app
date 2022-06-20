@@ -120,7 +120,7 @@ SELECT
                HR_HORA	      time,
                DS_CONCLUSAO     conclusao
           FROM tb_consulta
-         WHERE DT_CONSULTA >= current_date()`
+         WHERE DT_CONSULTA > current_date()`
     const [linhas] = await con.query(command) 
     return linhas
 } 

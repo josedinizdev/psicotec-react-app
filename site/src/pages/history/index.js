@@ -164,6 +164,7 @@ export default function Index(){
     function editarAgendamento(){
         return(
         <div className="popUp wh-full container-column">
+            <div className='overlay'></div>
             <div className="wh-full container-column al-center jc-center">
                 <div className="popUp-box">
                     <div className="w-full container jc-end">
@@ -173,7 +174,7 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do paciente*</label>
-                                <input value={nPac} onChange={e => setNPac(e.target.value)}/>
+                                <input maxLength="10" value={nPac} onChange={e => setNPac(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
@@ -227,10 +228,11 @@ export default function Index(){
     function criarAgendamento(){
         return(
         <div className="popUp wh-full container-column">
+            <div className='overlay'></div>
             <div className="wh-full container-column al-center jc-center">
                 <div className="popUp-box">
                     <div className="w-full container jc-end">
-                        <button className="close-popUp" type="button" onClick={togglePopUp}>x</button>
+                        <button className="close-popUp pointer" type="button" onClick={togglePopUp}>x</button>
                     </div>
                     <form className="container-column w-full">
                         <div className="container w-full space-between">
@@ -256,7 +258,7 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do pai</label>
-                                <input onChange={e => setCPai(e.target.value)}/>
+                                <input  onChange={e => setCPai(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Sexo*</label>
@@ -270,7 +272,7 @@ export default function Index(){
                         <div className="container w-full">
                             <div className="container-column w-full">
                                 <label>Detalhes do paciente</label>
-                                <textarea onChange={e => setCDetal(e.target.value)}></textarea>
+                                <textarea  onChange={e => setCDetal(e.target.value)}></textarea>
                             </div>
                         </div>
                         <div className="container w-full">
@@ -284,7 +286,7 @@ export default function Index(){
                 </div>
             </div>
         </div>
-        )
+        )   
     }
 
     function sairClick(){
