@@ -51,7 +51,7 @@ export async function consultarTodos(){
   id_consulta   id,       
   NM_PACIENTE		paciente,
   HR_HORA				time,
-  DATE_FORMAT(DT_CONSULTA, "%Y/%m/%d")       date,
+  DATE_FORMAT(DT_CONSULTA, "%d/%m/%Y")       date,
   DS_CONCLUSAO  conclusao
   FROM tb_consulta`;
 

@@ -178,11 +178,11 @@ export default function Index(){
                     <div className="w-full container jc-end">
                         <button className="close-popUp" type="button" onClick={toggleEdtPopUp}>x</button>
                     </div>
-                    <form className="container-column w-full">
+                    <form  maxLength='30' className="container-column w-full">
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do paciente*</label>
-                                <input maxLength="10" value={nPac} onChange={e => setNPac(e.target.value)}/>
+                                <input maxLength="35" value={nPac} onChange={e => setNPac(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
@@ -192,7 +192,7 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome da mãe</label>
-                                <input value={nMae} onChange={e => setNMae(e.target.value)}/>
+                                <input  maxLength='35' value={nMae} onChange={e => setNMae(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Data de nascimento*</label>
@@ -202,11 +202,11 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do pai</label>
-                                <input value={nPai} onChange={e => setNPai(e.target.value)}/>
+                                <input  maxLength='35' value={nPai} onChange={e => setNPai(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Sexo*</label>
-                                <input value={nSexo} onChange={e => setNSexo(e.target.value)}/>
+                                <input maxLength="11" value={nSexo} onChange={e => setNSexo(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Horário*</label>
@@ -246,7 +246,7 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do paciente*</label>
-                                <input  onChange={e => setCPac(e.target.value)}/>
+                                <input maxLength='35' onChange={e => setCPac(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Data do agendamento*</label>
@@ -256,7 +256,7 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome da mãe</label>
-                                <input  onChange={e => setCMae(e.target.value)}/>
+                                <input  maxLength='35' onChange={e => setCMae(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Data de nascimento*</label>
@@ -266,11 +266,11 @@ export default function Index(){
                         <div className="container w-full space-between">
                             <div className="container-column">
                                 <label>Nome do pai</label>
-                                <input  onChange={e => setCPai(e.target.value)}/>
+                                <input maxLength='35' onChange={e => setCPai(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Sexo*</label>
-                                <input  onChange={e => setCSexo(e.target.value)}/>
+                                <input maxLength="11" onChange={e => setCSexo(e.target.value)}/>
                             </div>
                             <div className="container-column">
                                 <label>Horário*</label>
