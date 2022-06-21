@@ -364,7 +364,7 @@ export default function Index(){
 
                             <div className="title-next container space-between al-center">
                                 
-                                <h2 >Pesquise por consultas antigas:</h2>
+                                <h2 >Pesquise por todas as consultas:</h2>
                                 <div className='pesquisa-box'>
                                     <input className="main-button common-button placeholder" placeholder="Pesquisar por nome"  value={filtro} onChange={e => setFiltro(e.target.value)} />
                                     <button className='pesquisa'  onClick={filtrar}><img src={lupa} /></button>
@@ -373,6 +373,9 @@ export default function Index(){
                             <div className="next-schedules-card container-column w-full">
                                 <table className="w-full">
                                     <tbody>
+                                    {consulta.length === 0 && (
+                                            <li className='agn-none'>Nenhum agendamento no momento</li>
+                                        )}
                                     {consulta.map(item => 
                                             <tr>
                                             <td>{item.paciente}</td>

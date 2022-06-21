@@ -425,10 +425,13 @@ export default function Index(){
                                 <ul>
                                     {paraHoje.length === 0 && (
                                         <li>Nenhum agendamento para hoje</li>
+                                        
                                     )}
                                     {paraHoje.map(item => 
+                                        
                                         <li>{abreviar(item.paciente)} - {item.time.substr(0, 5  )}</li>   
                                     )}
+                                   
                                 </ul>
                             </div>
                             <div>
@@ -452,6 +455,7 @@ export default function Index(){
                                         {consulta.length === 0 && (
                                             <li>Nenhum agendamento próximo</li>
                                         )}
+                                   
                                          {consulta.map(item =>  
                                             <tr>
                                                 <td>{item.paciente}</td>
