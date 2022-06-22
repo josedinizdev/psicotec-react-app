@@ -321,7 +321,13 @@
             font-size: 1.4rem;
         }
     }
-    
+
+    @media (max-width: 990px) {
+        button.pesquisa {
+            display: none;
+        }
+    }
+
     @media (max-width: 700px){
         td, input{
             font-size: 0.8rem !important;
@@ -374,5 +380,23 @@
         .placeholder {
             margin-left: 3rem;
         }
+        .popUp-box {
+            width: 29rem;
+            .container-column {
+                justify-content: space-between;
+            }
+        }
+    }
+    @media (max-width: 400px) {
+        .placeholder {
+            margin-left: 2rem;
+        }
+        .popUp-box {
+            width: 24rem;
+            .container-column {
+                justify-content: space-between;
+            }
+        }
+
     }
 }
